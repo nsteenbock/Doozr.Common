@@ -7,3 +7,4 @@ $opencoverconsoleexe="$PsScriptRoot\..\tools\OpenCover.$opencoverversion\tools\O
 $coverallsconsoleexe="$PsScriptRoot\..\tools\coveralls.net.$coverallsversion\tools\csmacnz.Coveralls.exe"
 $xunitconsoleexe="$PsScriptRoot\..\tools\xunit.runner.console.$xunitversion\tools\net462\xunit.console.exe"
 $reportgeneratorexe="$PsScriptRoot\..\tools\ReportGenerator.$reportgeneratorversion\tools\ReportGenerator.exe"
+$msbuildexe="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MsBuild.exe"

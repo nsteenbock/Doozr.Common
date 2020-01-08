@@ -1,3 +1,7 @@
+. $PSScriptRoot\config.ps1
+
+Write-Host "$msbuildexe"
+
 Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.sln | foreach {
-    msbuild $_.FullName
+    & $msbuildexe $_.FullName
 }
