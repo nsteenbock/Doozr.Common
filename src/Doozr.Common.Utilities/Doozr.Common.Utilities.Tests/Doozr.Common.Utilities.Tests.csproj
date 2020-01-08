@@ -41,12 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExceptionHandling\Preconditions\RequiresTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="xunit">
       <Version>2.4.1</Version>
     </PackageReference>
+    <PackageReference Include="xunit.runner.visualstudio">
+      <Version>2.4.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Utilities\Doozr.Common.Utilities.csproj">
+      <Project>{278bf749-4f4f-4250-b809-2d0dc839e006}</Project>
+      <Name>Doozr.Common.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
