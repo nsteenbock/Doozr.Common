@@ -4,3 +4,7 @@ nuget install OpenCover -Version $opencoverversion -OutputDirectory $PsScriptRoo
 nuget install coveralls.net -Version $coverallsversion -OutputDirectory $PsScriptRoot\..\tools
 nuget install xunit.runner.console -Version $xunitversion -OutputDirectory $PsScriptRoot\..\tools
 nuget install ReportGenerator -Version $reportgeneratorversion -OutputDirectory $PsScriptRoot\..\tools
+
+Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.sln | foreach {
+    dotnet restore $_.FullName
+}
