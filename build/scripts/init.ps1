@@ -6,5 +6,5 @@ nuget install xunit.runner.console -Version $xunitversion -OutputDirectory $PsSc
 nuget install ReportGenerator -Version $reportgeneratorversion -OutputDirectory $PsScriptRoot\..\tools
 
 Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.sln | foreach {
-    dotnet restore $_.FullName
+    nuget restore $_.FullName
 }
