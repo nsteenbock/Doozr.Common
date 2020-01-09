@@ -4,6 +4,7 @@ $searchDirs="";
 Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.Tests.dll |
     ? { $_.FullName -notmatch "obj\\" } |
     % {
+        Get-ChildItem $_.Directory
         $searchDirs = $searchDirs + $_.Directory + ";"
     }
 
