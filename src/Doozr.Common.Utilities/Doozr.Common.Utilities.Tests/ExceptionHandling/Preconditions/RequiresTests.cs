@@ -11,5 +11,11 @@ namespace Doozr.Common.Utilities.Tests.ExceptionHandling.Preconditions
 		{
 			Assert.ThrowsAny<ArgumentNullException>(() => Requires.NotNull(null, "someArgumentName"));
 		}
+
+		[Fact]
+		public void NotNull_ArgumentIsNotNull()
+		{
+			Requires.NotNull(new object(), "someArgumentName");
+		}
 	}
 }

@@ -7,3 +7,6 @@ $opencoverconsoleexe="$PsScriptRoot\..\tools\OpenCover.$opencoverversion\tools\O
 $coverallsconsoleexe="$PsScriptRoot\..\tools\coveralls.net.$coverallsversion\tools\csmacnz.Coveralls.exe"
 $xunitconsoleexe="$PsScriptRoot\..\tools\xunit.runner.console.$xunitversion\tools\net462\xunit.console.exe"
 $reportgeneratorexe="$PsScriptRoot\..\tools\ReportGenerator.$reportgeneratorversion\tools\ReportGenerator.exe"
+
+$codeCoverageOutputDir = "$PSScriptRoot\..\coverage"
+$codeCoverageNamespacePrefix = "Doozr"
