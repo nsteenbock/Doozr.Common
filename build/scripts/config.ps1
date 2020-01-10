@@ -10,3 +10,13 @@ $reportgeneratorexe="$PsScriptRoot\..\tools\ReportGenerator.$reportgeneratorvers
 
 $codeCoverageOutputDir = "$PSScriptRoot\..\coverage"
 $codeCoverageNamespacePrefix = "Doozr"
+$codeCoverageProfilerUser = "user"
+$buildNumber = "1.0.0"
+$publishCodeCoverage = $FALSE
+
+
+if (Test-Path 'env:APPVEYOR_BUILD_NUMBER') {
+    $codeCoverageProfilerUser = "appveyor"
+    $buildnumber = $env:APPVEYOR_BUILD_NUMBER
+    $publishCodeCoverage = $TRUE
+}
