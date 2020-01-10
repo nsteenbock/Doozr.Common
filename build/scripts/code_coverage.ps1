@@ -9,7 +9,7 @@ Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.Tests.dll |
     }
 
 New-Item -ItemType Directory -Force -Path "$codeCoverageOutputDir"
-
+Write-Host $opencoverconsoleexe -target:$PsScriptRoot\run_tests.cmd  -filter:"+[$codeCoverageNamespacePrefix.*]* -[*.Tests]*" -register:user -searchdirs:"$searchDirs" -output:"$codeCoverageOutputDir\\results.xml"
 & $opencoverconsoleexe -target:$PsScriptRoot\run_tests.cmd  -filter:"+[$codeCoverageNamespacePrefix.*]* -[*.Tests]*" -register:user -searchdirs:"$searchDirs" -output:"$codeCoverageOutputDir\\results.xml"
 
 if (Test-Path 'env:APPVEYOR_BUILD_NUMBER') {
