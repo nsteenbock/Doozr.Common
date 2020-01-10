@@ -6,6 +6,7 @@
     <Copyright>Nils Steenbock</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>http://www.google.de</PackageProjectUrl>
+    <PackageReleaseNotes>rel notes</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
