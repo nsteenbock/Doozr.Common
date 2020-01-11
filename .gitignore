@@ -5,6 +5,7 @@
 
 /build/tools
 /build/coverage
+/build/nuget-packages
 
 # User-specific files
 *.rsuser

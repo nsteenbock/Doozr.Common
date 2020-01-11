@@ -5,6 +5,6 @@ nuget install coveralls.net -Version $coverallsversion -OutputDirectory $PsScrip
 nuget install xunit.runner.console -Version $xunitversion -OutputDirectory $PsScriptRoot\..\tools
 nuget install ReportGenerator -Version $reportgeneratorversion -OutputDirectory $PsScriptRoot\..\tools
 
-Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.sln | foreach {
+Get-ChildItem $PsScriptRoot\..\..\src -Recurse -Filter *.sln | ForEach-Object {
     nuget restore $_.FullName
 }
