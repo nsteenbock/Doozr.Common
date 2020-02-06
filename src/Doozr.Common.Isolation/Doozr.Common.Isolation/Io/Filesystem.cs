@@ -13,5 +13,10 @@ namespace Doozr.Common.Isolation.Io
 		{
 			return Directory.GetFiles(path, searchPattern, SearchOption.AllDirectories);
 		}
+
+		public string ReadAllText(string filepath)
+		{
+			return File.ReadAllText(filepath);
+		}
 	}
 }

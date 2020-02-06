@@ -69,5 +69,15 @@ namespace Doozr.Common.Isolation.Tests.Io
 
 			Assert.Empty(files);
 		}
+
+		[Fact]
+		public void ReadAllText_WithExistingTextFile()
+		{
+			var sut = new Filesystem();
+
+			var content = sut.ReadAllText(@"Io\DummyFolderStructure\TextFile1.txt");
+
+			Assert.Equal("This is content.", content);
+		}
 	}
 }

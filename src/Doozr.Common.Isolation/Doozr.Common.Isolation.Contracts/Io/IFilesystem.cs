@@ -5,5 +5,7 @@
 		string[] GetFiles(string path, string searchPattern);
 
 		string[] GetFilesRecursive(string path, string searchPattern);
+
+		string ReadAllText(string filepath);
 	}
 }
