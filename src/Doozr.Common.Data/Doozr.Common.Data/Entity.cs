@@ -7,5 +7,5 @@ namespace Doozr.Common.Data
 		public T Id{ get; set; }
 	}
 
-	public abstract class Entity : Entity<Guid> { }
+	public abstract class Entity : Entity<Guid>, IEntity { }
 }
