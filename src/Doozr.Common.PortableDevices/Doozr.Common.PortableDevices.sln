@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.PortableDevices.Contracts", "Doozr.Common.PortableDevices.Contracts\Doozr.Common.PortableDevices.Contracts.csproj", "{B8FF12E6-7E02-4A0E-BD4A-3C6E854487A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.PortableDevices", "Doozr.Common.PortableDevices\Doozr.Common.PortableDevices.csproj", "{353C0468-8D6B-4B7E-B9DD-EB593C8EAD9A}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MediaDevicesShare", "MediaDevicesShare\MediaDevicesShare.shproj", "{8C6734B5-5BBB-413E-A5F2-FC7E6AAFFCE7}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MediaDevicesShare\MediaDevicesShare.projitems*{353c0468-8d6b-4b7e-b9dd-eb593c8ead9a}*SharedItemsImports = 5
+		MediaDevicesShare\MediaDevicesShare.projitems*{8c6734b5-5bbb-413e-a5f2-fc7e6aaffce7}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8FF12E6-7E02-4A0E-BD4A-3C6E854487A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FF12E6-7E02-4A0E-BD4A-3C6E854487A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FF12E6-7E02-4A0E-BD4A-3C6E854487A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FF12E6-7E02-4A0E-BD4A-3C6E854487A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353C0468-8D6B-4B7E-B9DD-EB593C8EAD9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{353C0468-8D6B-4B7E-B9DD-EB593C8EAD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353C0468-8D6B-4B7E-B9DD-EB593C8EAD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{353C0468-8D6B-4B7E-B9DD-EB593C8EAD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CEF6B0FD-A4E0-4F47-88DF-DD56F7A3EBA2}
+	EndGlobalSection
+EndGlobal
