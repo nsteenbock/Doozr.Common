@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities", "Doozr.Common.Utilities\Doozr.Common.Utilities.csproj", "{278BF749-4F4F-4250-B809-2D0DC839E006}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Utilities", "Doozr.Common.Utilities\Doozr.Common.Utilities.csproj", "{278BF749-4F4F-4250-B809-2D0DC839E006}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities.Tests", "Doozr.Common.Utilities.Tests\Doozr.Common.Utilities.Tests.csproj", "{9D559B50-F24C-4D8D-AF32-4110CB83B3BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities.Contracts", "Doozr.Common.Utilities.Contracts\Doozr.Common.Utilities.Contracts.csproj", "{23372EFF-83BE-41C7-88E7-E70FC4E91E30}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{9D559B50-F24C-4D8D-AF32-4110CB83B3BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D559B50-F24C-4D8D-AF32-4110CB83B3BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D559B50-F24C-4D8D-AF32-4110CB83B3BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,4 +15,12 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Utilities.Contracts\Doozr.Common.Utilities.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
