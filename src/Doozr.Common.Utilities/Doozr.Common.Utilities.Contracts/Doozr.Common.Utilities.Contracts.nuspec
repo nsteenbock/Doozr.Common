@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>doozr.common.utilites.contracts</id>
+    <version>1.0.0</version>
+    <title>Doozr Common Utilities Contracts</title>
+    <authors>Nils Steenbock</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Doozr common utility library contracts</description>
+  <dependencies>
+      <group targetFramework=".NETStandard2.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\netstandard2.0\Doozr.Common.Utilities.dll" target="lib\netstandard2.0" />
+  </files>
+</package>
