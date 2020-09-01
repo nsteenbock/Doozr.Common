@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30309.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application", "Doozr.Common.Application\Doozr.Common.Application.csproj", "{1D0593FC-D288-4BAD-B880-FBF098CEC6DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application.Contracts", "Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj", "{928A4029-BE7C-4B50-A09A-1F8D8E7223C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D0593FC-D288-4BAD-B880-FBF098CEC6DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D0593FC-D288-4BAD-B880-FBF098CEC6DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D0593FC-D288-4BAD-B880-FBF098CEC6DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D0593FC-D288-4BAD-B880-FBF098CEC6DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928A4029-BE7C-4B50-A09A-1F8D8E7223C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928A4029-BE7C-4B50-A09A-1F8D8E7223C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928A4029-BE7C-4B50-A09A-1F8D8E7223C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928A4029-BE7C-4B50-A09A-1F8D8E7223C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {826F68C1-3470-4AD9-AD8E-4D1BC52F13FF}
+	EndGlobalSection
+EndGlobal
