@@ -7,10 +7,11 @@
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Doozr common application desktop wpf libarary</description>
-  <dependencies>
-      <group targetFramework="netcoreapp3.1" />
-	  <dependency id="doozr.common.application.desktop.wpf.contracts" version="$(Version)" />
-	  <dependency id="doozr.common.application.desktop" version="$(Version)" />
+  <dependencies> 
+      <group targetFramework="netcoreapp3.1">
+		  <dependency id="doozr.common.application.desktop.wpf.contracts" version="$(Version)" />
+		  <dependency id="doozr.common.application.desktop" version="$(Version)" />
+		</group>
   </dependencies>
   </metadata>
   <files>
