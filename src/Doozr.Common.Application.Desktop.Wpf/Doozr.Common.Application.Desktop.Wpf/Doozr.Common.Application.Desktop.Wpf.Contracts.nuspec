@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>doozr.common.application.desktop.wpf</id>
+    <version>1.0.0</version>
+    <title>Doozr Common Application Desktop Wpf</title>
+    <authors>Nils Steenbock</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Doozr common application desktop wpf libarary</description>
+  <dependencies>
+      <group targetFramework="netcoreapp3.1" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\netcoreapp3.1\Doozr.Common.Application.Desktop.Wpf.dll" target="lib\netcoreapp3.1" />
+  </files>
+</package>
