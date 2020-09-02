@@ -6,10 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="doozr.common.application.desktop" Version="1.0.59" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Application.Desktop\Doozr.Common.Application.Desktop\Doozr.Common.Application.Desktop.csproj" />
     <ProjectReference Include="..\Doozr.Common.Application.Desktop.Wpf.Contracts\Doozr.Common.Application.Desktop.Wpf.Contracts.csproj" />
   </ItemGroup>
 

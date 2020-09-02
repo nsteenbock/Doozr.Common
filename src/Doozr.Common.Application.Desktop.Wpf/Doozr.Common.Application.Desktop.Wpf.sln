@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application.De
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application.Desktop.Wpf.Contracts", "Doozr.Common.Application.Desktop.Wpf.Contracts\Doozr.Common.Application.Desktop.Wpf.Contracts.csproj", "{182B4A8D-F069-423B-A309-BABE2ED00746}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Application.Desktop", "..\Doozr.Common.Application.Desktop\Doozr.Common.Application.Desktop\Doozr.Common.Application.Desktop.csproj", "{57F44941-5859-4693-99A6-201DCF03BAD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{182B4A8D-F069-423B-A309-BABE2ED00746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{182B4A8D-F069-423B-A309-BABE2ED00746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{182B4A8D-F069-423B-A309-BABE2ED00746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57F44941-5859-4693-99A6-201DCF03BAD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57F44941-5859-4693-99A6-201DCF03BAD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57F44941-5859-4693-99A6-201DCF03BAD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57F44941-5859-4693-99A6-201DCF03BAD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
