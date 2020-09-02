@@ -9,7 +9,9 @@
     <description>Doozr common application desktop wpf libarary</description>
   <dependencies>
       <group targetFramework="netcoreapp3.1" />
-    </dependencies>
+	  <dependency id="doozr.common.application.desktop.wpf.contracts" version="$(Version)" />
+	  <dependency id="doozr.common.application.desktop" version="$(Version)" />
+  </dependencies>
   </metadata>
   <files>
     <file src="bin\Debug\netcoreapp3.1\Doozr.Common.Application.Desktop.Wpf.dll" target="lib\netcoreapp3.1" />
