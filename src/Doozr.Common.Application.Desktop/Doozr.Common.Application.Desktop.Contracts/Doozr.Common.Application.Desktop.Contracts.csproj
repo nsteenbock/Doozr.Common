@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Doozr.Common.Application.Desktop</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Window\" />
+  </ItemGroup>
+
+</Project>
