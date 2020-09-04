@@ -13,7 +13,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 			Initialize();
 		}
 
-		private IContainer container;
+		protected IContainer container;
 
 		protected override void Configure()
 		{
