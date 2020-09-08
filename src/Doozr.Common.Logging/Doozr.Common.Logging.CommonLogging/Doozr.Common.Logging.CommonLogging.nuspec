@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>    
-    <id>doozr.common.logging</id>
+    <id>doozr.common.logging.commonlogging</id>
     <version>1.0.0</version>
     <title>Doozr Common Logging CommonLogging</title>
     <authors>Nils Steenbock</authors>
