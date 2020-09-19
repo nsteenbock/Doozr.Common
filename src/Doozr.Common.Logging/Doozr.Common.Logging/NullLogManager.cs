@@ -6,7 +6,7 @@ namespace Doozr.Common.Logging
 	{
 		static ILogger loggerInstance = new NullLogger();
 
-		public override ILogger GetLogger<T>()
+		public override ILogger GetLogger(Type type)
 		{
 			return loggerInstance;
 		}
