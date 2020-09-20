@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Doozr.Common.Application</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Application\Doozr.Common.Application.csproj" />
+  </ItemGroup>
+
+</Project>
