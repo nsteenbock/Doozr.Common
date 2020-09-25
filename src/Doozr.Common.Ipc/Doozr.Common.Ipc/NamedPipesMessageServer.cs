@@ -104,8 +104,11 @@ namespace Doozr.Common.Ipc
 
 						if (pipeStream.IsMessageComplete)
 						{
-							OnMessageReceived?.Invoke(receivedBytes.ToArray(), (bytes) => pipeStream.Write(bytes, 0, bytes.Length));
-							receivedBytes.Clear();
+							if (receivedBytes.Count > 0)
+							{
+								OnMessageReceived?.Invoke(receivedBytes.ToArray(), (bytes) => pipeStream.Write(bytes, 0, bytes.Length));
+								receivedBytes.Clear();
+							}
 						}
 					}
 					catch(Exception ex)
