@@ -12,6 +12,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Debug\netcoreapp3.1\Doozr.Common.I18n.Wpf.dll" target="lib\netcoreapp3.1" />
+    <file src="bin\Debug\netcoreapp3.1\Doozr.Common.I18n.Wpf.dll" target="lib\netcoreapp3.1"/>
   </files>
 </package>
