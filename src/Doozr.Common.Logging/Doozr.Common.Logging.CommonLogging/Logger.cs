@@ -5,7 +5,7 @@ namespace Doozr.Common.Logging.CommonLogging
 {
 	public class Logger: Doozr.Common.Logging.Logger
 	{
-		private readonly ILog logger;
+		private readonly global::Common.Logging.ILog logger;
 
 		private const LogLevel defaultLogLevel = LogLevel.Info;
 

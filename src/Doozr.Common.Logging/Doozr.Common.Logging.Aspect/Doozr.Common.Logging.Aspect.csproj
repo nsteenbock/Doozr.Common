@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fody" Version="6.2.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.138" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>
