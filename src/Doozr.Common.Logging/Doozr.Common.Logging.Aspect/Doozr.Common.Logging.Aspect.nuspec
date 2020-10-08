@@ -10,8 +10,8 @@
   <dependencies>
       <group targetFramework=".NETStandard2.0">
 		<dependency id="doozr.common.logging.contracts" />
-		<dependency id="Fody" />
-		<dependency id="MethodBoundaryAspect.Fody" />
+		<dependency id="Fody" version="6.2.6" />
+		<dependency id="MethodBoundaryAspect.Fody" version="2.0.138"/>
 	  </group>
     </dependencies>
   </metadata>
