@@ -65,11 +65,26 @@ namespace Doozr.Common.Ipc
 
 		public void Stop()
 		{
+			foreach(var stream in streams)
+			{
+				if (stream.IsConnected)
+				{
+					stream.Disconnect();
+				}
+			}
+
 			cancellationTokenSource.Cancel();
 
-			Task.WaitAll(startedTasks.ToArray());
-			
-			foreach(var stream in streams)
+			try
+			{
+				Task.WaitAll(startedTasks.ToArray());
+			}
+			catch(Exception ex)
+			{
+
+			}
+
+			foreach (var stream in streams)
 			{
 				stream.Dispose();
 			}
@@ -89,14 +104,20 @@ namespace Doozr.Common.Ipc
 			Interlocked.Increment(ref numberOfPipes);
 			while (!cancellationToken.IsCancellationRequested)
 			{
-				await pipeStream.WaitForConnectionAsync(cancellationToken);
+				try
+				{
+					await pipeStream.WaitForConnectionAsync(cancellationToken);
+				}
+				catch (Exception ex)
+				{ 
+				}
 				Interlocked.Increment(ref numberOfConnectedClients);
 				CheckForPipeCreation();
 				while (pipeStream.IsConnected && ! cancellationToken.IsCancellationRequested)
 				{
 					try
 					{
-						var bytesRead = await pipeStream.ReadAsync(buffer, 0, buffer.Length);
+						var bytesRead = await pipeStream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
 						if (bytesRead >= 0)
 						{
 							receivedBytes.AddRange(buffer.Take(bytesRead));
@@ -106,7 +127,11 @@ namespace Doozr.Common.Ipc
 						{
 							if (receivedBytes.Count > 0)
 							{
-								OnMessageReceived?.Invoke(receivedBytes.ToArray(), (bytes) => pipeStream.Write(bytes, 0, bytes.Length));
+								OnMessageReceived?.Invoke(receivedBytes.ToArray(), (bytes) =>
+									{
+										pipeStream.Write(bytes, 0, bytes.Length);
+										pipeStream.Flush();
+									});
 								receivedBytes.Clear();
 							}
 						}

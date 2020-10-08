@@ -37,12 +37,19 @@ namespace Doozr.Common.Ipc
 
 			while (pipeClient.IsConnected && !cancellationToken.IsCancellationRequested)
 			{
-				var bytesReceived = await pipeClient.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
-				receivedBytes.AddRange(buffer.Take(bytesReceived));
-				if (pipeClient.IsMessageComplete)
+				try
 				{
-					OnMessageReceived?.Invoke(receivedBytes.ToArray(), SendMessage);
-					receivedBytes.Clear();
+					var bytesReceived = await pipeClient.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+					receivedBytes.AddRange(buffer.Take(bytesReceived));
+					if (pipeClient.IsMessageComplete)
+					{
+						OnMessageReceived?.Invoke(receivedBytes.ToArray(), SendMessage);
+						receivedBytes.Clear();
+					}
+				}
+				catch(Exception ex)
+				{
+
 				}
 			}
 		}
