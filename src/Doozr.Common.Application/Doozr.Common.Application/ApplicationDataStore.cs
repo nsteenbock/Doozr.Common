@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Doozr.Common.Logging.Aspect;
+using System;
 using System.IO;
 
 namespace Doozr.Common.Application
 {
+	[Logging]
 	public class ApplicationDataStore: IApplicationDataStore
 	{
 		private readonly string applicationDataPath;

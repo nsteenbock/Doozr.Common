@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj" />
     <ProjectReference Include="..\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj" />
   </ItemGroup>
 

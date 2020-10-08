@@ -8,7 +8,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Doozr common logging aspect libarary</description>
   <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+      <group targetFramework=".NETStandard2.0">
+		<dependency id="doozr.common.logging.contracts" />
+		<dependency id="Fody" />
+		<dependency id="MethodBoundaryAspect.Fody" />
+	  </group>
     </dependencies>
   </metadata>
   <files>
