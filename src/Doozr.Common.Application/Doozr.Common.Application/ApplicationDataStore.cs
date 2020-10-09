@@ -1,13 +1,16 @@
-﻿using Doozr.Common.Logging.Aspect;
+﻿using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
 using System;
 using System.IO;
 
 namespace Doozr.Common.Application
 {
 	[Logging]
-	public class ApplicationDataStore: IApplicationDataStore
+	public class ApplicationDataStore: IApplicationDataStore, ILoggingObject
 	{
 		private readonly string applicationDataPath;
+
+		public ILogger Logger { get; set; }
 
 		public ApplicationDataStore(IPortableApplicationDetector portableApplicationDetector, IApplicationProperties applicationProperties)
 		{
