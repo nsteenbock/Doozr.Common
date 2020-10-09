@@ -35,7 +35,10 @@ namespace Doozr.Common.Application
 
 		private string GetCompletePath(string path)
 		{
-			return Path.Combine(applicationDataPath, path);
+			Logger?.LogString("path", path);
+			var result = Path.Combine(applicationDataPath, path);
+			Logger?.LogString("result", result);
+			return result;
 		}
 
 		private string GetApplicationDataPath(bool isPortableApplication, IApplicationProperties applicationProperties)
