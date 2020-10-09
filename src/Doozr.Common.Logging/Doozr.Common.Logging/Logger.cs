@@ -17,5 +17,7 @@ namespace Doozr.Common.Logging
 		public abstract void LogException(Exception exception);
 		public abstract void LogException(string message, Exception exception);
 		public abstract void LogWarning(string message);
+		public abstract void LogString(string name, string value);
+		public abstract void LogString(LogLevel level, string name, string value);
 	}
 }

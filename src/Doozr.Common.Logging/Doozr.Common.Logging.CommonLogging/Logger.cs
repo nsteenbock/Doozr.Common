@@ -107,5 +107,16 @@ namespace Doozr.Common.Logging.CommonLogging
 		{
 			Log(LogLevel.Warning, message);
 		}
+
+
+		public override void LogString(LogLevel level, string name, string value)
+		{
+			Log(level, $"{name} = {value}");
+		}
+
+		public override void LogString(string name, string value)
+		{
+			Log($"{name} = {value}");
+		}
 	}
 }

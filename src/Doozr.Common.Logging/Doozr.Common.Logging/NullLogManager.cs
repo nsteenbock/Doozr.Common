@@ -39,6 +39,10 @@ namespace Doozr.Common.Logging
 			public override void LogException(string message, Exception exception) { }
 
 			public override void LogWarning(string message) { }
+
+			public override void LogString(LogLevel level, string name, string value) { }
+
+			public override void LogString(string name, string value) { }
 		}
 	}
 }
