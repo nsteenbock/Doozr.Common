@@ -61,7 +61,7 @@ namespace Doozr.Common.Ipc
 
 		public T GetCommandProxy<T>() where T:class
 		{
-			Logger.LogString("ProxyFor", typeof(T).ToString());
+			Logger?.LogString("ProxyFor", typeof(T).ToString());
 			object proxy = DispatchProxy.Create<T, CommandProxy>();
 			((CommandProxy)proxy).MessageSender = (IMessageSender)this.messageReceiver; // please fix this
 			((CommandProxy)proxy).AddCommandContext = AddCommandContext;
