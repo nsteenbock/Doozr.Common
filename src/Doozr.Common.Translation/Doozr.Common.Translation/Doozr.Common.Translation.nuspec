@@ -11,6 +11,7 @@
 		<group targetFramework=".NETStandard2.0">
 			<dependency id="doozr.common.translation.contracts" version="$version$"/>
 			<dependency id="doozr.common.i18n.contracts" version="$version$"/>
+			<dependency id="doozr.common.i18n" version="$version$"/>
 			<dependency id="doozr.common.ipc.contracts" version="$version$"/>
 			<dependency id="doozr.common.ipc" version="$version$"/>
 			<dependency id="doozr.common.logging.aspect" version="$version$"/>
