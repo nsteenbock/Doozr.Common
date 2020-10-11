@@ -43,6 +43,10 @@ namespace Doozr.Common.Logging
 			public override void LogString(LogLevel level, string name, string value) { }
 
 			public override void LogString(string name, string value) { }
+
+			public override void LogInt(string name, int value) { }
+
+			public override void LogInt(LogLevel level, string name, int value) { }
 		}
 	}
 }

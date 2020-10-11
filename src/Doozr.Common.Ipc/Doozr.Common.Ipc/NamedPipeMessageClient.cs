@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
+using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
@@ -7,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace Doozr.Common.Ipc
 {
-	public class NamedPipeMessageClient: INamedPipesMessageClient
+	[Log]
+	public class NamedPipeMessageClient: INamedPipesMessageClient, ILoggingObject
 	{
 		private readonly string server;
 		private readonly string pipeName;
@@ -15,10 +18,26 @@ namespace Doozr.Common.Ipc
 		private CancellationTokenSource cancellationTokenSource;
 		private Task loopTask;
 
+		public ILogger Logger { get; set; }
+
 		public NamedPipeMessageClient(string server, string pipeName)
 		{
+			#region Instrumentation
+
+			Logger?.EnterMethod("ctor");
+			Logger?.LogString(nameof(server), server);
+			Logger?.LogString(nameof(pipeName), pipeName);
+
+			#endregion
+
 			this.server = server;
 			this.pipeName = pipeName;
+
+			#region Instrumentation
+
+			Logger?.LeaveMethod("ctor");
+
+			#endregion
 		}
 
 		public void Connect()
@@ -39,24 +58,35 @@ namespace Doozr.Common.Ipc
 			{
 				try
 				{
+					Logger?.Log("Waiting for bytes received");
+
 					var bytesReceived = await pipeClient.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+
+					Logger?.LogInt(nameof(bytesReceived), bytesReceived);
+					
 					receivedBytes.AddRange(buffer.Take(bytesReceived));
 					if (pipeClient.IsMessageComplete)
 					{
+						Logger?.Log("MessageComplete");
+
 						OnMessageReceived?.Invoke(receivedBytes.ToArray(), SendMessage);
 						receivedBytes.Clear();
 					}
 				}
 				catch(Exception ex)
 				{
-
+					Logger?.LogException(ex);
 				}
 			}
 		}
 
 		public void SendMessage(byte[] message)
 		{
-				
+			#region Instrumentation
+
+			Logger?.LogInt("messageLength", message.Length);
+			
+			#endregion
 
 			pipeClient.Write(message, 0, message.Length);
 			pipeClient.Flush();
@@ -69,7 +99,10 @@ namespace Doozr.Common.Ipc
 			{
 				loopTask.Wait();
 			}
-			catch { }
+			catch (Exception ex)
+			{
+				Logger?.LogException(ex);
+			}
 			pipeClient.Dispose();
 		}
 

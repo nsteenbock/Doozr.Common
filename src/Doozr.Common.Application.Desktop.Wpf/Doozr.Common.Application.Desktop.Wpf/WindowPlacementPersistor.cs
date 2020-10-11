@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
 using System.Windows;
 
 namespace Doozr.Common.Application.Desktop.Wpf
 {
-	public class WindowPlacementPersistor : IWindowPlacementPersistor
+	[Log]
+	public class WindowPlacementPersistor : IWindowPlacementPersistor, ILoggingObject
 	{
 		private readonly IApplicationDataStore applicationDataStore;
 		private readonly IWindowPlacementManager windowPlacementManager;
@@ -16,6 +16,8 @@ namespace Doozr.Common.Application.Desktop.Wpf
 			this.windowPlacementManager = windowPlacementManager;
 		}
 
+		public ILogger Logger { get; set; }
+
 		public void Register(global::System.Windows.Window window)
 		{
 			try
@@ -24,11 +26,13 @@ namespace Doozr.Common.Application.Desktop.Wpf
 			}
 			catch
 			{
+				Logger?.LogWarning("Could not get window position (maybe file does not exist on first application run). Just show window with defaults.");
 				window.WindowState = WindowState.Normal;
 			}
 			applicationDataStore.WriteFile("MainWindowPosition.json", windowPlacementManager.GetWindowPlacement(window));
 			window.Closing += (sender, cancelEventArges) =>
 			{
+				Logger?.Log("MainWindow closing.");
 				applicationDataStore.WriteFile("MainWindowPosition.json", windowPlacementManager.GetWindowPlacement(window));
 			};
 		}

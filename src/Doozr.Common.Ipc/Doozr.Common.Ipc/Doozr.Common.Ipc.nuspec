@@ -8,7 +8,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Doozr common interprocess communication library</description>
   <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+		<group targetFramework=".NETStandard2.0">
+			<dependency id="doozr.common.logging.contracts" version="$version$"/>
+			<dependency id="doozr.common.logging.aspect" version="$version$"/>
+			<dependency id="doozr.common.ipc.contracts" version="$version$"/>
+		</group>
     </dependencies>
   </metadata>
   <files>

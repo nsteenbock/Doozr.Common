@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30503.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Translation", "Doozr.Common.Translation\Doozr.Common.Translation.csproj", "{9DE01AD9-2EBB-480D-BAD0-DED6AD056410}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Translation", "Doozr.Common.Translation\Doozr.Common.Translation.csproj", "{9DE01AD9-2EBB-480D-BAD0-DED6AD056410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Translation.Contracts", "Doozr.Common.Translation.Contracts\Doozr.Common.Translation.Contracts.csproj", "{B22295A8-3F66-43ED-A9C0-76DF8F577FFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Translation.Contracts", "Doozr.Common.Translation.Contracts\Doozr.Common.Translation.Contracts.csproj", "{B22295A8-3F66-43ED-A9C0-76DF8F577FFC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependencies", "{46EDAF63-0163-40D0-897C-4C0E2BB7B398}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Ipc", "..\Doozr.Common.Ipc\Doozr.Common.Ipc\Doozr.Common.Ipc.csproj", "{0CEAB3A9-69C1-46F3-A251-BFCB0C0C90C8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Contracts", "..\Doozr.Common.I18n\Doozr.Common.I18n.Contracts\Doozr.Common.I18n.Contracts.csproj", "{0F068A11-A109-4E21-B202-167F8F52CD7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect", "..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj", "{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Contracts", "..\Doozr.Common.Logging\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj", "{71F40FE1-BEA2-4614-88DA-29D615C81A31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +45,14 @@ Global
 		{0F068A11-A109-4E21-B202-167F8F52CD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F068A11-A109-4E21-B202-167F8F52CD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F068A11-A109-4E21-B202-167F8F52CD7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71F40FE1-BEA2-4614-88DA-29D615C81A31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71F40FE1-BEA2-4614-88DA-29D615C81A31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71F40FE1-BEA2-4614-88DA-29D615C81A31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71F40FE1-BEA2-4614-88DA-29D615C81A31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,6 +61,8 @@ Global
 		{02D18314-A707-4479-BB05-0EDD6376923C} = {46EDAF63-0163-40D0-897C-4C0E2BB7B398}
 		{0CEAB3A9-69C1-46F3-A251-BFCB0C0C90C8} = {46EDAF63-0163-40D0-897C-4C0E2BB7B398}
 		{0F068A11-A109-4E21-B202-167F8F52CD7F} = {46EDAF63-0163-40D0-897C-4C0E2BB7B398}
+		{C5C002BB-DC53-4DE9-AC6B-34E505F11DA7} = {46EDAF63-0163-40D0-897C-4C0E2BB7B398}
+		{71F40FE1-BEA2-4614-88DA-29D615C81A31} = {46EDAF63-0163-40D0-897C-4C0E2BB7B398}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {710F6201-DA7D-4AB1-B2F5-61123C8612FD}

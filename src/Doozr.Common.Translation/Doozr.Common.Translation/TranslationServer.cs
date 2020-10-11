@@ -1,9 +1,12 @@
 ﻿using Doozr.Common.Ipc;
+using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
 using System.Diagnostics;
 
 namespace Doozr.Common.Translation
 {
-	public class TranslationServer: ITranslationServer
+	[Log]
+	public class TranslationServer: ITranslationServer, ILoggingObject
 	{
 		private readonly ITranslationTarget translationTarget;
 		private NamedPipesMessageServer server;
@@ -15,9 +18,15 @@ namespace Doozr.Common.Translation
 			this.translationTarget = translationTarget;
 		}
 
+		public ILogger Logger { get; set; }
+
 		public void Start()
 		{
-			server = new NamedPipesMessageServer(string.Format(Consts.TRANSLATION_PIPE_NAME, Process.GetCurrentProcess().Id), 3, 1);
+
+			string pipeName = string.Format(Consts.TRANSLATION_PIPE_NAME, Process.GetCurrentProcess().Id);
+			Logger?.LogString(nameof(pipeName), pipeName);
+
+			server = new NamedPipesMessageServer(pipeName, 3, 1);
 			server.Start();
 			commandHandler = new CommandHandler(server);
 			commandHandler.AddHandler<ITranslationTarget>(translationTarget);

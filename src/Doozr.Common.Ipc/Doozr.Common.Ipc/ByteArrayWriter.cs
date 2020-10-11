@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace Doozr.Common.Ipc
 {
 	public class ByteArrayWriter
 	{
-		private List<byte> bytes = new List<byte>();
+		private readonly List<byte> bytes = new List<byte>();
 
 		public void WriteGuid(Guid guid)
 		{

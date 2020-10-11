@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
+using System;
 using System.Collections.Generic;
 using System.IO.Pipes;
 using System.Linq;
@@ -7,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace Doozr.Common.Ipc
 {
-	public class NamedPipesMessageServer: INamedPipesMessageServer
+	[Log]
+	public class NamedPipesMessageServer: INamedPipesMessageServer, ILoggingObject
 	{
 		private readonly string pipeName;
 		private readonly int maxNumberOfInstances;
@@ -20,14 +23,31 @@ namespace Doozr.Common.Ipc
 		private readonly List<NamedPipeServerStream> streams = new List<NamedPipeServerStream>();
 		private readonly List<Task> startedTasks = new List<Task>();
 
+		public ILogger Logger { get; set; }
+
 		public NamedPipesMessageServer(
 			string pipeName,
 			int maxNumberOfInstances,
 			int initialNumberOfInstances)
 		{
+			#region Instrumentation
+
+			Logger?.EnterMethod("ctor");
+			Logger?.LogString(nameof(pipeName), pipeName);
+			Logger?.LogInt(nameof(maxNumberOfInstances), maxNumberOfInstances);
+			Logger?.LogInt(nameof(initialNumberOfInstances), initialNumberOfInstances);
+
+			#endregion
+
 			this.pipeName = pipeName;
 			this.maxNumberOfInstances = maxNumberOfInstances;
 			this.initialNumberOfInstances = initialNumberOfInstances;
+
+			#region Instrumentation
+
+			Logger?.LeaveMethod("ctor");
+
+			#endregion
 		}
 
 		public event Action<byte[], Action<byte[]>> OnMessageReceived;
@@ -43,7 +63,8 @@ namespace Doozr.Common.Ipc
 		}
 
 		private void StartServerStreams()
-		{
+		{	
+			
 			foreach (var stream in streams)
 			{
 				startedTasks.Add(ServerStreamLoop(stream, cancellationTokenSource.Token));
@@ -56,6 +77,12 @@ namespace Doozr.Common.Ipc
 			{
 				streams.Add(CreateNewServerStream());
 			}
+
+			#region Instrumentation
+
+			Logger?.LogInt("numberOfServerStreams", streams.Count);
+			
+			#endregion
 		}
 
 		private NamedPipeServerStream CreateNewServerStream()
@@ -77,13 +104,15 @@ namespace Doozr.Common.Ipc
 
 			try
 			{
+				Logger?.Log("Waiting for streams to shut down");
 				Task.WaitAll(startedTasks.ToArray());
 			}
 			catch(Exception ex)
 			{
-
+				Logger?.LogException(ex);
 			}
 
+			Logger?.Log("Disposing streams");
 			foreach (var stream in streams)
 			{
 				stream.Dispose();
@@ -106,18 +135,27 @@ namespace Doozr.Common.Ipc
 			{
 				try
 				{
+					Logger?.Log("Waiting for connection");
+					
 					await pipeStream.WaitForConnectionAsync(cancellationToken);
+
+					Logger?.Log("Connected");
 				}
 				catch (Exception ex)
-				{ 
+				{
+					Logger?.LogException(ex);
 				}
+
 				Interlocked.Increment(ref numberOfConnectedClients);
 				CheckForPipeCreation();
 				while (pipeStream.IsConnected && ! cancellationToken.IsCancellationRequested)
 				{
 					try
 					{
+						Logger?.Log("Waiting for bytes to read");
 						var bytesRead = await pipeStream.ReadAsync(buffer, 0, buffer.Length, cancellationToken);
+						Logger?.Log("Bytes received");
+						Logger?.LogInt(nameof(bytesRead), bytesRead);
 						if (bytesRead >= 0)
 						{
 							receivedBytes.AddRange(buffer.Take(bytesRead));
@@ -125,6 +163,7 @@ namespace Doozr.Common.Ipc
 
 						if (pipeStream.IsMessageComplete)
 						{
+							Logger?.Log("Message complete");
 							if (receivedBytes.Count > 0)
 							{
 								OnMessageReceived?.Invoke(receivedBytes.ToArray(), (bytes) =>
@@ -138,7 +177,7 @@ namespace Doozr.Common.Ipc
 					}
 					catch(Exception ex)
 					{
-
+						Logger?.LogException(ex);
 					}
 				}
 				pipeStream.Disconnect();
@@ -159,7 +198,13 @@ namespace Doozr.Common.Ipc
 
 		public void SendMessage(byte[] message)
 		{
-			foreach(var stream in streams)
+			#region Instrumentation
+
+			Logger?.LogInt("messageLength", message.Length);
+
+			#endregion
+
+			foreach (var stream in streams)
 			{
 				if (stream.IsConnected)
 				{

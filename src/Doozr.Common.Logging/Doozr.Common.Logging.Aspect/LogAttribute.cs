@@ -2,7 +2,7 @@
 
 namespace Doozr.Common.Logging.Aspect
 {
-	public class LoggingAttribute: OnMethodBoundaryAspect
+	public class LogAttribute: OnMethodBoundaryAspect
 	{
 		public static ILogManager LogManager{ get; set; }
 

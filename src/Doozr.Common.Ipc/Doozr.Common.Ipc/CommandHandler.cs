@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Doozr.Common.Logging;
+using Doozr.Common.Logging.Aspect;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +10,8 @@ using System.Threading;
 
 namespace Doozr.Common.Ipc
 {
-	public class CommandHandler
+	[Log]
+	public class CommandHandler: ILoggingObject
 	{
 		public class CommandContext
 		{
@@ -27,9 +30,11 @@ namespace Doozr.Common.Ipc
 
 		private readonly IMessageReceiver messageReceiver;
 
-		private Dictionary<Guid, CommandContext> commandContexts = new Dictionary<Guid, CommandContext>();
+		private readonly Dictionary<Guid, CommandContext> commandContexts = new Dictionary<Guid, CommandContext>();
 
-		private Dictionary<Type, object> commandHandlers = new Dictionary<Type, object>();
+		private readonly Dictionary<Type, object> commandHandlers = new Dictionary<Type, object>();
+
+		public ILogger Logger { get; set; }
 
 		public CommandHandler(IMessageReceiver messageReceiver)
 		{
@@ -39,20 +44,24 @@ namespace Doozr.Common.Ipc
 
 		public void AddCommandContext(CommandContext context)
 		{
+			Logger?.LogString("commandId", context.CommandId.ToString());
 			if (context.CommandId == Guid.Empty)
 			{
 
 			}
-			commandContexts.Add(context.CommandId, context);
+			else
+				commandContexts.Add(context.CommandId, context);
 		}
 
 		public void AddHandler<T>(T handler)
 		{
+			Logger?.LogString("HandlerType", typeof(T).ToString());
 			commandHandlers.Add(typeof(T), handler);
 		}
 
 		public T GetCommandProxy<T>() where T:class
 		{
+			Logger.LogString("ProxyFor", typeof(T).ToString());
 			object proxy = DispatchProxy.Create<T, CommandProxy>();
 			((CommandProxy)proxy).MessageSender = (IMessageSender)this.messageReceiver; // please fix this
 			((CommandProxy)proxy).AddCommandContext = AddCommandContext;
@@ -61,15 +70,21 @@ namespace Doozr.Common.Ipc
 
 		private void OnMessageReceived(byte[] messageBytes, Action<byte[]> sendReply)
 		{
+			Logger?.LogInt("messageLength", messageBytes.Length);
 			var reader = new ByteArrayReader(messageBytes);
 
 			var commandId = reader.ReadGuid();
+
+			Logger?.LogString(nameof(commandId), commandId.ToString());
+
 			if (commandContexts.ContainsKey(commandId))
 			{
+				Logger?.Log("Handle command with return value.");
 				HandleResponse(commandId, reader);
 			}
 			else
 			{
+				Logger?.Log("No command context found. => Handle command without return value.");
 				HandleCommand(commandId, reader, sendReply);
 			}
 		}
@@ -78,6 +93,13 @@ namespace Doozr.Common.Ipc
 		{
 			string typeName = reader.ReadString();
 			string methodName = reader.ReadString();
+
+			#region Instrumentation
+
+			Logger?.LogString(nameof(typeName), typeName);
+			Logger?.LogString(nameof(methodName), methodName);
+
+			#endregion
 
 			var handlerType = commandHandlers.Keys.Where(x => x.FullName == typeName).Single();
 			var handlerObject = commandHandlers[handlerType];
@@ -95,8 +117,12 @@ namespace Doozr.Common.Ipc
 				var paramBytes = reader.ReadBytes();
 				parameters.Add(bf.Deserialize(new MemoryStream(paramBytes)));
 			}
-			
+
+			Logger?.Log("Invoke command");
+
 			var result = method.Invoke(handlerObject, paramCount == 0 ? null : parameters.ToArray());
+
+			Logger?.Log("Finished invoking command");
 
 			var writer = new ByteArrayWriter();
 			writer.WriteGuid(commandId);
@@ -116,6 +142,8 @@ namespace Doozr.Common.Ipc
 
 		private void HandleResponse(Guid commandId, ByteArrayReader reader)
 		{
+			Logger?.LogString(nameof(commandId), commandId.ToString());
+
 			var context = commandContexts[commandId];
 			var bytes = reader.ReadBytes();
 

@@ -9,6 +9,7 @@
 		<description>Doozr common application libarary</description>
 		<dependencies>
 			<group targetFramework=".NETStandard2.0">
+				<dependency id="doozr.common.logging.contracts" version="$version$"/>
 				<dependency id="doozr.common.logging.aspect" version="$version$"/>
 				<dependency id="doozr.common.application.contracts" version="$version$"/>
 			</group>

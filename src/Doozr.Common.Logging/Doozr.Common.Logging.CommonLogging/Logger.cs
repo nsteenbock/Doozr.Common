@@ -118,5 +118,15 @@ namespace Doozr.Common.Logging.CommonLogging
 		{
 			Log($"{name} = {value}");
 		}
+
+		public override void LogInt(string name, int value)
+		{
+			Log($"{name} = {value}");
+		}
+
+		public override void LogInt(LogLevel level, string name, int value)
+		{
+			Log(level, $"{name} = {value}");
+		}
 	}
 }

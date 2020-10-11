@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Doozr.Common.Application
 {
-	[Logging]
+	[Log]
 	public class ApplicationDataStore: IApplicationDataStore, ILoggingObject
 	{
 		private readonly string applicationDataPath;
@@ -24,10 +24,13 @@ namespace Doozr.Common.Application
 
 		public void WriteFile(string path, string content)
 		{
+			Logger?.LogString("content", content);
+
 			var completePath = GetCompletePath(path);
 			var directory = Path.GetDirectoryName(completePath);
 			if (!Directory.Exists(directory))
 			{
+				Logger?.Log($"Creating directory: {directory}");
 				Directory.CreateDirectory(directory);
 			}
 			File.WriteAllText(completePath, content);

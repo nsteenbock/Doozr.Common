@@ -19,5 +19,7 @@ namespace Doozr.Common.Logging
 		public abstract void LogWarning(string message);
 		public abstract void LogString(string name, string value);
 		public abstract void LogString(LogLevel level, string name, string value);
+		public abstract void LogInt(string name, int value);
+		public abstract void LogInt(LogLevel level, string name, int value);
 	}
 }

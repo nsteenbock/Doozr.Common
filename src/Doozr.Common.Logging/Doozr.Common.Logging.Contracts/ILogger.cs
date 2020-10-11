@@ -25,5 +25,10 @@ namespace Doozr.Common.Logging
 		void LogString(string name, string value);
 
 		void LogString(LogLevel level, string name, string value);
+
+		void LogInt(string name, int value);
+		
+		void LogInt(LogLevel level, string name, int value);
+
 	}
 }
