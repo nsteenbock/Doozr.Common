@@ -11,13 +11,17 @@ namespace Doozr.Common.Translation
 		private INamedPipesMessageClient client;
 		private CommandHandler commandHandler;
 		private readonly NamedPipeMessageClient.Factory messageClientFactory;
+		private readonly CommandHandler.Factory commandHandlerFactory;
 
 		public ITranslationTarget TranslationTarget { get; private set; }
 		public ILogger Logger { get; set; }
 
-		public Translator(NamedPipeMessageClient.Factory messageClientFactory)
+		public delegate ITranslator Factory();
+
+		public Translator(NamedPipeMessageClient.Factory messageClientFactory, CommandHandler.Factory commandHandlerFactory)
 		{
 			this.messageClientFactory = messageClientFactory;
+			this.commandHandlerFactory = commandHandlerFactory;
 		}
 
 		public void Connect(string pipename)
@@ -34,7 +38,7 @@ namespace Doozr.Common.Translation
 			client.Connect();
 			Logger?.Log("Connection established.");
 
-			commandHandler = new CommandHandler(client);
+			commandHandler = commandHandlerFactory(client);
 			TranslationTarget = commandHandler.GetCommandProxy<ITranslationTarget>();
 		}
 

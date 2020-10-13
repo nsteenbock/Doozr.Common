@@ -25,6 +25,8 @@ namespace Doozr.Common.Ipc
 
 		public ILogger Logger { get; set; }
 
+		public delegate INamedPipesMessageServer Factory(string pipeName, int maxNumberOfInstances, int initialNumberOfInstances);
+
 		public NamedPipesMessageServer(
 			string pipeName,
 			int maxNumberOfInstances,

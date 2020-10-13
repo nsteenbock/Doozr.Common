@@ -36,6 +36,8 @@ namespace Doozr.Common.Ipc
 
 		public ILogger Logger { get; set; }
 
+		public delegate CommandHandler Factory(IMessageReceiver messageReceiver);
+
 		public CommandHandler(IMessageReceiver messageReceiver)
 		{
 			this.messageReceiver = messageReceiver;
