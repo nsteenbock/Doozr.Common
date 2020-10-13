@@ -8,10 +8,17 @@ namespace Doozr.Common.Translation
 	[Log]
 	public class Translator : ITranslator, ILoggingObject
 	{
-		private NamedPipeMessageClient client;
+		private INamedPipesMessageClient client;
 		private CommandHandler commandHandler;
+		private readonly NamedPipeMessageClient.Factory messageClientFactory;
+
 		public ITranslationTarget TranslationTarget { get; private set; }
 		public ILogger Logger { get; set; }
+
+		public Translator(NamedPipeMessageClient.Factory messageClientFactory)
+		{
+			this.messageClientFactory = messageClientFactory;
+		}
 
 		public void Connect(string pipename)
 		{
@@ -22,7 +29,7 @@ namespace Doozr.Common.Translation
 				Logger?.Log("Disconnecting existing connection.");
 				Task.Factory.StartNew(() => client.Disconnect()).Wait();
 			}
-			client = new NamedPipeMessageClient(".", pipename);
+			client = messageClientFactory(".", pipename);
 			Logger?.Log("Connecting.");
 			client.Connect();
 			Logger?.Log("Connection established.");

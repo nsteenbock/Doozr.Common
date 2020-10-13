@@ -20,6 +20,8 @@ namespace Doozr.Common.Ipc
 
 		public ILogger Logger { get; set; }
 
+		public delegate INamedPipesMessageClient Factory(string server, string pipeName);
+
 		public NamedPipeMessageClient(string server, string pipeName)
 		{
 			#region Instrumentation
