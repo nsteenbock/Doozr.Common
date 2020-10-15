@@ -9,8 +9,8 @@
     <description>Doozr common application autofac registration libarary</description>
   <dependencies>
       <group targetFramework=".NETStandard2.0">
-		<dependency id="doozr.common.application.contracts" version="$version" />
-		<dependency id="doozr.common.application" version="$version"/>
+		<dependency id="doozr.common.application.contracts" version="$version$" />
+		<dependency id="doozr.common.application" version="$version$"/>
 	  </group>
   </dependencies>
   </metadata>
