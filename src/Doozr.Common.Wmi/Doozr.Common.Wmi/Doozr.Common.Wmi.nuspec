@@ -7,8 +7,10 @@
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Doozr common wmi library</description>
-  <dependencies>
-      <group targetFramework=".NETStandard2.0" />
+    <dependencies>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="doozr.common.wmi.contracts" version="$version$" />
+      </group>
     </dependencies>
   </metadata>
   <files>
