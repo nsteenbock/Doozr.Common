@@ -1,0 +1,76 @@
+digraph G {
+   rankdir="LR";
+   node [shape=box];
+
+   "doozr.common.application"
+   "doozr.common.application.autofac"
+   "doozr.common.application.contracts"
+   "doozr.common.application.desktop"
+   "doozr.common.application.desktop.contracts"
+   "doozr.common.application.desktop.wpf"
+   "doozr.common.application.desktop.wpf.contracts"
+   "doozr.common.application.desktop.wpf.caliburnmicro"
+   "doozr.common.data"
+   "doozr.common.data.contracts"
+   "doozr.common.data.entityframework"
+   "doozr.common.i18n"
+   "doozr.common.i18n.contracts"
+   "doozr.common.i18n.wpf"
+   "doozr.common.ipc"
+   "doozr.common.ipc.contracts"
+   "doozr.common.isolation"
+   "doozr.common.isolation.contracts"
+   "doozr.common.logging"
+   "doozr.common.logging.aspect"
+   "doozr.common.logging.autofac"
+   "doozr.common.logging.commonlogging"
+   "doozr.common.logging.contracts"
+   "doozr.common.portabledevices"
+   "doozr.common.portabledevices.contracts"
+   "doozr.common.translation"
+   "doozr.common.translation.contracts"
+   "doozr.common.utilites"
+   "doozr.common.utilites.contracts"
+   "doozr.common.wmi"
+   "doozr.common.wmi.contracts"
+   "doozr.common.application" -> "doozr.common.logging.aspect"[style=bold,color=green];
+   "doozr.common.application" -> "doozr.common.application.contracts"[style=bold,color=green];
+   "doozr.common.application" -> "doozr.common.logging.contracts"[style=bold,color=red];
+   "doozr.common.application.autofac" -> "doozr.common.application.contracts"[style=bold,color=green];
+   "doozr.common.application.autofac" -> "doozr.common.application"[style=bold,color=green];
+   "doozr.common.application.desktop" -> "doozr.common.application.desktop.contracts"[style=bold,color=orange];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.application.desktop.wpf.contracts"[style=bold,color=green];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.application.desktop"[style=bold,color=green];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.logging.contracts"[style=bold,color=green];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.logging.aspect"[style=bold,color=green];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.application.desktop.contracts"[style=bold,color=red];
+   "doozr.common.application.desktop.wpf" -> "doozr.common.application.contracts"[style=bold,color=orange];
+   "doozr.common.application.desktop.wpf.caliburnmicro" -> "Autofac"[style=bold,color=red];
+   "doozr.common.application.desktop.wpf.caliburnmicro" -> "Caliburn.Micro"[style=bold,color=red];
+   "doozr.common.data" -> "doozr.common.data.contracts"[style=bold,color=orange];
+   "doozr.common.data.entityframework" -> "doozr.common.data.contracts"[style=bold,color=orange];
+   "doozr.common.i18n" -> "doozr.common.i18n.contracts"[style=bold,color=green];
+   "doozr.common.i18n.wpf" -> "doozr.common.i18n.contracts"[style=bold,color=orange];
+   "doozr.common.ipc" -> "doozr.common.logging.contracts"[style=bold,color=green];
+   "doozr.common.ipc" -> "doozr.common.logging.aspect"[style=bold,color=green];
+   "doozr.common.ipc" -> "doozr.common.ipc.contracts"[style=bold,color=green];
+   "doozr.common.isolation" -> "doozr.common.isolation.contracts"[style=bold,color=orange];
+   "doozr.common.logging" -> "doozr.common.logging.contracts"[style=bold,color=orange];
+   "doozr.common.logging.aspect" -> "doozr.common.logging.contracts"[style=bold,color=green];
+   "doozr.common.logging.aspect" -> "Fody"[style=bold,color=red];
+   "doozr.common.logging.aspect" -> "MethodBoundaryAspect.Fody"[style=bold,color=red];
+   "doozr.common.logging.autofac" -> "doozr.common.logging.contracts"[style=bold,color=orange];
+   "doozr.common.logging.commonlogging" -> "doozr.common.logging.contracts"[style=bold,color=orange];
+   "doozr.common.logging.commonlogging" -> "doozr.common.logging"[style=bold,color=orange];
+   "doozr.common.portabledevices" -> "doozr.common.portabledevices.contracts"[style=bold,color=orange];
+   "doozr.common.translation" -> "doozr.common.translation.contracts"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.i18n.contracts"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.ipc.contracts"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.ipc"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.logging.aspect"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.logging.contracts"[style=bold,color=green];
+   "doozr.common.translation" -> "doozr.common.i18n"[style=bold,color=red];
+   "doozr.common.utilites" -> "doozr.common.utilities.contracts"[style=bold,color=orange];
+   "doozr.common.wmi" -> "doozr.common.wmi.contracts"[style=bold,color=orange];
+}
+
