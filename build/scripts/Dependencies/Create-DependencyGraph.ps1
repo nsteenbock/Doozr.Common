@@ -17,6 +17,8 @@ process {
         Where-Object { $_.FullName -notlike "*\obj\*" } | 
         ForEach-Object { [NuspecFile]::new($_.FullName) }
 
+    $allNuspecIds = $nuspecFiles | ForEach-Object { $_.GetId() }
+
     $processedItems = 0
 
     foreach ($nuspecFile in $nuspecFiles) {
@@ -40,13 +42,14 @@ process {
             Where-Object { $csprojDependencies -contains $_ } |
             ForEach-Object { $graph.AddEdge($nuspecId, $_, "green") }
 
-        # Nuget package is missing dependency for package referenced in csproj file
+        # Nuget package has dependency on package not referenced in csproj file 
         $nuspecDependencies |
+            Where-Object { $allNuspecIds -contains $_ } |
             Where-Object { -not ($csprojDependencies -contains $_) } |
             ForEach-Object { $graph.AddEdge($nuspecId, $_, "red") }
 
-        # Nuget package has dependency on package not referenced in csproj file 
-        $csprojDependencies | 
+        # Nuget package is missing dependency for package referenced in csproj file
+        $csprojDependencies |
             Where-Object { -not ($nuspecDependencies -contains $_) } |
             ForEach-Object { $graph.AddEdge($nuspecId, $_, "orange") }
 
