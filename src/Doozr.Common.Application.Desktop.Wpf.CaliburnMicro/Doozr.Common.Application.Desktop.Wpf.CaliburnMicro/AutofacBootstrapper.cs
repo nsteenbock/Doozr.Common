@@ -1,11 +1,13 @@
 ﻿using Autofac;
 using Caliburn.Micro;
+using Doozr.Common.Logging.Aspect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 {
+	[Log(LogLevel = Logging.LogLevel.Debug)]
 	public abstract class AutofacBootstrapper: BootstrapperBase
 	{
 		public AutofacBootstrapper()
