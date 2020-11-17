@@ -9,7 +9,7 @@
     <description>Doozr common application desktop wpf caliburn micro libarary</description>
 	<dependencies> 
       <group targetFramework="netcoreapp3.1">
-        <dependency id="Autofac" version="5.2.0" />
+        <dependency id="Autofac" version="6.0.0" />
         <dependency id="Caliburn.Micro" version="4.0.136-rc" />
 				<dependency id="doozr.common.logging.aspect" version="$version$" />
 		</group>
