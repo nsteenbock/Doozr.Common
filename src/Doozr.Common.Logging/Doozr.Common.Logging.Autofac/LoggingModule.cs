@@ -37,11 +37,14 @@ namespace Doozr.Common.Logging.Autofac
 			  .Where(p => p.PropertyType == typeof(ILogger) && p.CanWrite && p.GetIndexParameters().Length == 0);
 
 
-			var logManager = context.Resolve<ILogManager>();
-
-			foreach (var propToSet in properties)
+			if (properties.Any())
 			{
-				propToSet.SetValue(context.Instance, logManager.GetLogger(instanceType), null);
+				var logManager = context.Resolve<ILogManager>();
+
+				foreach (var propToSet in properties)
+				{
+					propToSet.SetValue(context.Instance, logManager.GetLogger(instanceType), null);
+				}
 			}
 		}
 
