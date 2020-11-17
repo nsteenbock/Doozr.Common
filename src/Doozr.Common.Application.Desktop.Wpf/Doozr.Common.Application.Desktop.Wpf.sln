@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Contracts", "..\Doozr.Common.Logging\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj", "{1B41F61D-3076-4EDB-876C-E5C18D02E289}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application.Desktop.Wpf.Autofac", "Doozr.Common.Application.Desktop.Wpf.Autofac\Doozr.Common.Application.Desktop.Wpf.Autofac.csproj", "{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{1B41F61D-3076-4EDB-876C-E5C18D02E289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B41F61D-3076-4EDB-876C-E5C18D02E289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B41F61D-3076-4EDB-876C-E5C18D02E289}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
