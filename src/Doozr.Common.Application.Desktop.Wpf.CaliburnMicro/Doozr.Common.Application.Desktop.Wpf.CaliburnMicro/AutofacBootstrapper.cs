@@ -15,6 +15,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 
 		public AutofacBootstrapper()
 		{
+			PrepareRegistration();
 			Initialize();
 		}
 
@@ -30,7 +31,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 			RegisterUiAssembly(typeof(T).Assembly);
 		}
 
-		protected virtual void Init()
+		protected virtual void PrepareRegistration()
 		{
 			RegisterUiAssembly(GetType().Assembly);
 		}
