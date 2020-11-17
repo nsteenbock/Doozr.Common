@@ -4,18 +4,36 @@ using Doozr.Common.Logging.Aspect;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 
 namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 {
 	[Log(LogLevel = Logging.LogLevel.Debug)]
 	public abstract class AutofacBootstrapper: BootstrapperBase
 	{
+		private List<Assembly> uiAssemblies = new List<Assembly>();
+
 		public AutofacBootstrapper()
 		{
 			Initialize();
 		}
 
 		protected IContainer container;
+
+		protected void RegisterUiAssembly(Assembly uiAssembly)
+		{
+			uiAssemblies.Add(uiAssembly);
+		}
+
+		protected void RegisterUiAssemblyContaining<T>()
+		{
+			RegisterUiAssembly(typeof(T).Assembly);
+		}
+
+		protected virtual void Init()
+		{
+			RegisterUiAssembly(GetType().Assembly);
+		}
 
 		protected override void Configure()
 		{
@@ -24,11 +42,14 @@ namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 			builder.RegisterType<WindowManager>().As<IWindowManager>().SingleInstance();
 			builder.RegisterType<EventAggregator>().As<IEventAggregator>().SingleInstance();
 
-			GetType().Assembly.GetTypes()
-				.Where(type => type.IsClass)
-				.Where(type => type.Name.EndsWith("ViewModel"))
-				.ToList()
-				.ForEach(viewModelType => builder.RegisterType(viewModelType));
+			foreach (var uiAssembly in uiAssemblies)
+			{
+				uiAssembly.GetTypes()
+					.Where(type => type.IsClass)
+					.Where(type => type.Name.EndsWith("ViewModel"))
+					.ToList()
+					.ForEach(viewModelType => builder.RegisterType(viewModelType));
+			}
 
 			ConfigureContainer(builder);
 
