@@ -24,6 +24,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.CaliburnMicro
 		protected void RegisterUiAssembly(Assembly uiAssembly)
 		{
 			uiAssemblies.Add(uiAssembly);
+			AssemblySource.Instance.Add(uiAssembly);
 		}
 
 		protected void RegisterUiAssemblyContaining<T>()
