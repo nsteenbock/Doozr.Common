@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package  xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>    
+    <id>doozr.common.i18n.autofac</id>
+    <version>1.0.0</version>
+    <title>Doozr Common I18n Autofac</title>
+    <authors>Nils Steenbock</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Doozr common I18n libarary autofac</description>
+  <dependencies>
+      <group targetFramework=".NETStandard2.0">
+		<dependency id="doozr.common.i18n.contracts" version="$version$"/>
+		<dependency id="doozr.common.i18n" version="$version$"/>
+	  </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Debug\netstandard2.0\Doozr.Common.I18n.dll" target="lib\netstandard2.0" />
+  </files>
+</package>

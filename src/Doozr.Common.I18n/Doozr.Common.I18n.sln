@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Wpf", "Doozr.Common.I18n.Wpf\Doozr.Common.I18n.Wpf.csproj", "{36E8E596-99B3-40DF-BA5C-876371EDEE99}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Translator.Contracts", "Doozr.Common.I18n.Translator.Contracts\Doozr.Common.I18n.Translator.Contracts.csproj", "{EE7087BB-8EB8-4239-B8A0-1CB92AE51680}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.I18n.Autofac", "Doozr.Common.I18n.Autofac\Doozr.Common.I18n.Autofac.csproj", "{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{36E8E596-99B3-40DF-BA5C-876371EDEE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36E8E596-99B3-40DF-BA5C-876371EDEE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36E8E596-99B3-40DF-BA5C-876371EDEE99}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EE7087BB-8EB8-4239-B8A0-1CB92AE51680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EE7087BB-8EB8-4239-B8A0-1CB92AE51680}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EE7087BB-8EB8-4239-B8A0-1CB92AE51680}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EE7087BB-8EB8-4239-B8A0-1CB92AE51680}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
