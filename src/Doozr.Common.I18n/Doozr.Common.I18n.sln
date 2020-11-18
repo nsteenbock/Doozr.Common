@@ -9,7 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Wpf", "Doozr.Common.I18n.Wpf\Doozr.Common.I18n.Wpf.csproj", "{36E8E596-99B3-40DF-BA5C-876371EDEE99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.I18n.Autofac", "Doozr.Common.I18n.Autofac\Doozr.Common.I18n.Autofac.csproj", "{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Autofac", "Doozr.Common.I18n.Autofac\Doozr.Common.I18n.Autofac.csproj", "{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependencies", "{ACFAEEE1-A96B-4B5A-9436-6662A6681479}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Application.Contracts", "..\Doozr.Common.Application\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj", "{934292E6-2D63-4346-92DA-13490F3BD7BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +37,16 @@ Global
 		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02EF46D9-B963-45F5-B6BD-097A2A10B7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{934292E6-2D63-4346-92DA-13490F3BD7BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{934292E6-2D63-4346-92DA-13490F3BD7BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{934292E6-2D63-4346-92DA-13490F3BD7BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{934292E6-2D63-4346-92DA-13490F3BD7BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{934292E6-2D63-4346-92DA-13490F3BD7BC} = {ACFAEEE1-A96B-4B5A-9436-6662A6681479}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E007EAB2-A74E-4316-85AD-F9281DD9340D}

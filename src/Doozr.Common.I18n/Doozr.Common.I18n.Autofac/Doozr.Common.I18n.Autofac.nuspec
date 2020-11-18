@@ -11,6 +11,7 @@
       <group targetFramework=".NETStandard2.0">
 		<dependency id="doozr.common.i18n.contracts" version="$version$"/>
 		<dependency id="doozr.common.i18n" version="$version$"/>
+		<dependency id="doozr.common.application.contracts" version="$version$"/>
 	  </group>
     </dependencies>
   </metadata>

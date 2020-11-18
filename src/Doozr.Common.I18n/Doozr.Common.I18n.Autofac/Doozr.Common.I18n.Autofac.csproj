@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Application\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj" />
     <ProjectReference Include="..\Doozr.Common.I18n.Contracts\Doozr.Common.I18n.Contracts.csproj" />
     <ProjectReference Include="..\Doozr.Common.I18n\Doozr.Common.I18n.csproj" />
   </ItemGroup>

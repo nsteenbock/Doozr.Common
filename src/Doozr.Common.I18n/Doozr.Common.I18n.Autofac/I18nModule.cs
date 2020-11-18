@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Doozr.Common.Application;
+using System.IO;
 
 namespace Doozr.Common.I18n.Autofac
 {
@@ -6,7 +8,11 @@ namespace Doozr.Common.I18n.Autofac
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
-			builder.RegisterType<TranslationProvider>().As<ITranslationProvider>();
+			builder.Register(c =>
+				{
+					var applicationProperties = c.Resolve<IApplicationProperties>();
+					return new TranslationProvider(Path.Combine(applicationProperties.RootDirectory, "language"));
+				}).As<ITranslationProvider>().SingleInstance();
 			builder.RegisterType<TranslationSource>().As<ITranslationSource>();
 		}
 	}
