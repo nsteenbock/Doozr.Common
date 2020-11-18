@@ -13,7 +13,7 @@ namespace Doozr.Common.I18n.Autofac
 					var applicationProperties = c.Resolve<IApplicationProperties>();
 					return new TranslationProvider(Path.Combine(applicationProperties.RootDirectory, "language"));
 				}).As<ITranslationProvider>().SingleInstance();
-			builder.RegisterType<TranslationSource>().As<ITranslationSource>();
+			builder.RegisterType<TranslationSource>().As<ITranslationSource>().SingleInstance();
 		}
 	}
 }
