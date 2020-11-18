@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Contra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect", "..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj", "{2B0B53B2-3357-4E0D-B21F-D181C3CE7FA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Ipc.Autofac", "Doozr.Common.Ipc.Autofac\Doozr.Common.Ipc.Autofac.csproj", "{845A33B7-DB8C-48F0-8902-89F1D5448DD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{2B0B53B2-3357-4E0D-B21F-D181C3CE7FA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B0B53B2-3357-4E0D-B21F-D181C3CE7FA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B0B53B2-3357-4E0D-B21F-D181C3CE7FA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{845A33B7-DB8C-48F0-8902-89F1D5448DD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{845A33B7-DB8C-48F0-8902-89F1D5448DD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{845A33B7-DB8C-48F0-8902-89F1D5448DD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{845A33B7-DB8C-48F0-8902-89F1D5448DD8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -7,6 +7,7 @@ namespace Doozr.Common.Application.Desktop.Wpf
 	[Log]
 	public class WindowPlacementPersistor : IWindowPlacementPersistor, ILoggingObject
 	{
+		private const string WindowPositionFilename = "MainWindowPosition.json";
 		private readonly IApplicationDataStore applicationDataStore;
 		private readonly IWindowPlacementManager windowPlacementManager;
 
@@ -22,18 +23,18 @@ namespace Doozr.Common.Application.Desktop.Wpf
 		{
 			try
 			{
-				windowPlacementManager.SetWindowPlacement(window, applicationDataStore.ReadFile("MainWindowPosition.json"));
+				windowPlacementManager.SetWindowPlacement(window, applicationDataStore.ReadFile(WindowPositionFilename));
 			}
 			catch
 			{
 				Logger?.LogWarning("Could not get window position (maybe file does not exist on first application run). Just show window with defaults.");
 				window.WindowState = WindowState.Normal;
 			}
-			applicationDataStore.WriteFile("MainWindowPosition.json", windowPlacementManager.GetWindowPlacement(window));
+			applicationDataStore.WriteFile(WindowPositionFilename, windowPlacementManager.GetWindowPlacement(window));
 			window.Closing += (sender, cancelEventArges) =>
 			{
 				Logger?.Log("MainWindow closing.");
-				applicationDataStore.WriteFile("MainWindowPosition.json", windowPlacementManager.GetWindowPlacement(window));
+				applicationDataStore.WriteFile(WindowPositionFilename, windowPlacementManager.GetWindowPlacement(window));
 			};
 		}
 	}
