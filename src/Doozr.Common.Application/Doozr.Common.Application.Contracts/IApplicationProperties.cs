@@ -5,5 +5,7 @@
 		string ProcessName{ get; }
 
 		string RootDirectory{ get; }
+
+		string AppDataDirectory { get; }
 	}
 }

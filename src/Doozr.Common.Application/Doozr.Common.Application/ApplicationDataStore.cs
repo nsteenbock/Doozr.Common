@@ -8,13 +8,13 @@ namespace Doozr.Common.Application
 	[Log]
 	public class ApplicationDataStore: IApplicationDataStore, ILoggingObject
 	{
-		private readonly string applicationDataPath;
+		private readonly IApplicationProperties applicationProperties;
 
 		public ILogger Logger { get; set; }
 
-		public ApplicationDataStore(IPortableApplicationDetector portableApplicationDetector, IApplicationProperties applicationProperties)
+		public ApplicationDataStore(IApplicationProperties applicationProperties)
 		{
-			applicationDataPath = GetApplicationDataPath(portableApplicationDetector.IsPortableApplication, applicationProperties);
+			this.applicationProperties = applicationProperties;
 		}
 
 		public string ReadFile(string path)
@@ -39,7 +39,7 @@ namespace Doozr.Common.Application
 		private string GetCompletePath(string path)
 		{
 			Logger?.LogString("path", path);
-			var result = Path.Combine(applicationDataPath, path);
+			var result = Path.Combine(applicationProperties.AppDataDirectory, path);
 			Logger?.LogString("result", result);
 			return result;
 		}
