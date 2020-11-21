@@ -9,7 +9,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Application\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj" />
     <ProjectReference Include="..\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Logging\Doozr.Common.Logging.csproj" />
   </ItemGroup>
 
 </Project>

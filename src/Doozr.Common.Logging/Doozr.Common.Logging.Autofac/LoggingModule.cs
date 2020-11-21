@@ -2,6 +2,9 @@
 using Autofac.Core;
 using Autofac.Core.Registration;
 using Autofac.Core.Resolving.Pipeline;
+using Doozr.Common.Application;
+using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 
@@ -9,6 +12,32 @@ namespace Doozr.Common.Logging.Autofac
 {
 	public class LoggingModule : global::Autofac.Module
 	{
+		protected override void Load(ContainerBuilder builder)
+		{
+			builder.Register(container =>
+			{
+				var applicationProperties = container.Resolve<IApplicationProperties>();
+
+				var logLibraryDirectory = Path.Combine(applicationProperties.AppDataDirectory, "Logging");
+
+				if (Directory.Exists(logLibraryDirectory))
+				{
+					var loggingDlls = Directory.GetFiles(logLibraryDirectory, "*.dll");
+					foreach(var loggingDll in loggingDlls)
+					{
+						var assembly = Assembly.LoadFile(loggingDll);
+						var logManagerType = assembly.GetTypes().Where(x => x.IsAssignableTo<ILogManager>()).SingleOrDefault();
+						if (logManagerType != null)
+						{
+							return Activator.CreateInstance(logManagerType);
+						}
+					}
+				}
+
+				return new NullLogManager();
+			}).As<ILogManager>().SingleInstance();
+		}
+
 		protected override void AttachToComponentRegistration(IComponentRegistryBuilder componentRegistry, IComponentRegistration registration)
 		{
 			registration.PipelineBuilding += (sender, pipeline) =>
