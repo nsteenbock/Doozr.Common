@@ -9,6 +9,7 @@ namespace Doozr.Common.Ipc.Autofac
 			builder.RegisterType<NamedPipeMessageClient>().As<INamedPipesMessageClient>();
 			builder.RegisterType<NamedPipesMessageServer>().As<INamedPipesMessageServer>();
 			builder.RegisterType<CommandHandler>();
+			builder.RegisterType<NamedPipeManager>().As<INamedPipeManager>();
 		}
 	}
 }
