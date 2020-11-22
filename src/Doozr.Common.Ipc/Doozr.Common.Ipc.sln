@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Ipc", "Doozr.C
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Ipc.Contracts", "Doozr.Common.Ipc.Contracts\Doozr.Common.Ipc.Contracts.csproj", "{B076D260-1CD1-457E-94EA-226DB831A3C1}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{9D74707B-E712-4AAE-9F4A-83C78B57C81D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependencies", "{9D74707B-E712-4AAE-9F4A-83C78B57C81D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Contracts", "..\Doozr.Common.Logging\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj", "{8EC64B19-A4B0-474F-A839-28FF4FA13EC2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect", "..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj", "{2B0B53B2-3357-4E0D-B21F-D181C3CE7FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Ipc.Autofac", "Doozr.Common.Ipc.Autofac\Doozr.Common.Ipc.Autofac.csproj", "{845A33B7-DB8C-48F0-8902-89F1D5448DD8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Ipc.Autofac", "Doozr.Common.Ipc.Autofac\Doozr.Common.Ipc.Autofac.csproj", "{845A33B7-DB8C-48F0-8902-89F1D5448DD8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

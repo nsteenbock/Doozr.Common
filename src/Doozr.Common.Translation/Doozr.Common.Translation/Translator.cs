@@ -8,7 +8,7 @@ namespace Doozr.Common.Translation
 	[Log]
 	public class Translator : ITranslator, ILoggingObject
 	{
-		private INamedPipesMessageClient client;
+		private INamedPipeMessageClient client;
 		private CommandHandler commandHandler;
 		private readonly NamedPipeMessageClient.Factory messageClientFactory;
 		private readonly CommandHandler.Factory commandHandlerFactory;

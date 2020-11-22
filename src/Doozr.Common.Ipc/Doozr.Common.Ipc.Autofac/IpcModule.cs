@@ -6,8 +6,8 @@ namespace Doozr.Common.Ipc.Autofac
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
-			builder.RegisterType<NamedPipeMessageClient>().As<INamedPipesMessageClient>();
-			builder.RegisterType<NamedPipesMessageServer>().As<INamedPipesMessageServer>();
+			builder.RegisterType<NamedPipeMessageClient>().As<INamedPipeMessageClient>();
+			builder.RegisterType<NamedPipeMessageServer>().As<INamedPipeMessageServer>();
 			builder.RegisterType<CommandHandler>();
 			builder.RegisterType<NamedPipeManager>().As<INamedPipeManager>();
 		}

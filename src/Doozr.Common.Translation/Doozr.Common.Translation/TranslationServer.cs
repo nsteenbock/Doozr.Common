@@ -10,18 +10,18 @@ namespace Doozr.Common.Translation
 	{
 		private readonly ITranslationTarget translationTarget;
 		private readonly CommandHandler.Factory commandHandlerFactory;
-		private readonly NamedPipesMessageServer.Factory namedPipesMessageServerFactory;
-		private INamedPipesMessageServer server;
+		private readonly NamedPipeMessageServer.Factory namedPipeMessageServerFactory;
+		private INamedPipeMessageServer server;
 		private CommandHandler commandHandler;
 		private ITranslator translator;
 
 		public delegate ITranslationServer Factory(TranslationTarget translationTarget);
 
-		public TranslationServer(ITranslationTarget translationTarget, CommandHandler.Factory commandHandlerFactory, NamedPipesMessageServer.Factory namedPipesMessageServerFactory)
+		public TranslationServer(ITranslationTarget translationTarget, CommandHandler.Factory commandHandlerFactory, NamedPipeMessageServer.Factory namedPipesMessageServerFactory)
 		{
 			this.translationTarget = translationTarget;
 			this.commandHandlerFactory = commandHandlerFactory;
-			this.namedPipesMessageServerFactory = namedPipesMessageServerFactory;
+			this.namedPipeMessageServerFactory = namedPipesMessageServerFactory;
 		}
 
 		public ILogger Logger { get; set; }
@@ -32,7 +32,7 @@ namespace Doozr.Common.Translation
 			string pipeName = string.Format(Consts.TRANSLATION_PIPE_NAME, Process.GetCurrentProcess().Id);
 			Logger?.LogString(nameof(pipeName), pipeName);
 
-			server = namedPipesMessageServerFactory(pipeName, 3, 1);
+			server = namedPipeMessageServerFactory(pipeName, 3, 1);
 			server.Start();
 			commandHandler = commandHandlerFactory(server);
 			commandHandler.AddHandler<ITranslationTarget>(translationTarget);

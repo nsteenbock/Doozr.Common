@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Doozr.Common.Ipc
 {
 	[Log]
-	public class NamedPipeMessageClient: INamedPipesMessageClient, ILoggingObject
+	public class NamedPipeMessageClient: INamedPipeMessageClient, ILoggingObject
 	{
 		private readonly string server;
 		private readonly string pipeName;
@@ -20,7 +20,7 @@ namespace Doozr.Common.Ipc
 
 		public ILogger Logger { get; set; }
 
-		public delegate INamedPipesMessageClient Factory(string server, string pipeName);
+		public delegate INamedPipeMessageClient Factory(string server, string pipeName);
 
 		public NamedPipeMessageClient(string server, string pipeName)
 		{
