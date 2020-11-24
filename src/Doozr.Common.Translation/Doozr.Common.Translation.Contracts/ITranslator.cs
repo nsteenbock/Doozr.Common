@@ -6,5 +6,6 @@
 
 		void Connect(string pipename);
 		void Disconnect();
+		TranslationServerProcessInfo[] GetAvailableTranslationServers();
 	}
 }

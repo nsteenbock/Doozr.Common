@@ -29,7 +29,7 @@ namespace Doozr.Common.Translation
 		public void Start()
 		{
 
-			string pipeName = string.Format(Consts.TRANSLATION_PIPE_NAME, Process.GetCurrentProcess().Id);
+			string pipeName = Consts.TRANSLATION_PIPE_PREFIX + Process.GetCurrentProcess().Id;
 			Logger?.LogString(nameof(pipeName), pipeName);
 
 			server = namedPipeMessageServerFactory(pipeName, 3, 1);

@@ -2,6 +2,6 @@
 {
 	public static class Consts
 	{
-		public const string TRANSLATION_PIPE_NAME = "doozr.translation.{0}";
+		public const string TRANSLATION_PIPE_PREFIX = "doozr.translation.";
 	}
 }

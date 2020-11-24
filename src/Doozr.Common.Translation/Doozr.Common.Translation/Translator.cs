@@ -1,6 +1,8 @@
 ﻿using Doozr.Common.Ipc;
 using Doozr.Common.Logging;
 using Doozr.Common.Logging.Aspect;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Doozr.Common.Translation
@@ -12,6 +14,12 @@ namespace Doozr.Common.Translation
 		private CommandHandler commandHandler;
 		private readonly NamedPipeMessageClient.Factory messageClientFactory;
 		private readonly CommandHandler.Factory commandHandlerFactory;
+		private readonly INamedPipeManager namedPipeManager;
+
+		public Translator(INamedPipeManager namedPipeManager)
+		{
+			this.namedPipeManager = namedPipeManager;
+		}
 
 		public ITranslationTarget TranslationTarget { get; private set; }
 		public ILogger Logger { get; set; }
@@ -46,6 +54,29 @@ namespace Doozr.Common.Translation
 		{
 			client.Disconnect();
 			client = null;
+		}
+
+		public TranslationServerProcessInfo[] GetAvailableTranslationServers()
+		{
+			var doozrTranslationPipes = namedPipeManager.GetNamedPipes()
+				.Where(x => x.StartsWith(Consts.TRANSLATION_PIPE_PREFIX));
+			var result = new List<TranslationServerProcessInfo>();
+
+			foreach(var doozrTranslationPipe in doozrTranslationPipes)
+			{
+				var processIdString = doozrTranslationPipe.Remove(0, Consts.TRANSLATION_PIPE_PREFIX.Length);
+				int processId;
+				if (int.TryParse(processIdString, out processId))
+				{
+					result.Add(new TranslationServerProcessInfo
+					{
+						PipeName = doozrTranslationPipe,
+						ProcessId = processId
+					});
+				}
+			}
+
+			return result.ToArray();
 		}
 	}
 }
