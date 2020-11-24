@@ -16,20 +16,16 @@ namespace Doozr.Common.Translation
 		private readonly CommandHandler.Factory commandHandlerFactory;
 		private readonly INamedPipeManager namedPipeManager;
 
-		public Translator(INamedPipeManager namedPipeManager)
-		{
-			this.namedPipeManager = namedPipeManager;
-		}
-
 		public ITranslationTarget TranslationTarget { get; private set; }
 		public ILogger Logger { get; set; }
 
 		public delegate ITranslator Factory();
 
-		public Translator(NamedPipeMessageClient.Factory messageClientFactory, CommandHandler.Factory commandHandlerFactory)
+		public Translator(NamedPipeMessageClient.Factory messageClientFactory, CommandHandler.Factory commandHandlerFactory, INamedPipeManager namedPipeManager)
 		{
 			this.messageClientFactory = messageClientFactory;
 			this.commandHandlerFactory = commandHandlerFactory;
+			this.namedPipeManager = namedPipeManager;
 		}
 
 		public void Connect(string pipename)
