@@ -2,6 +2,8 @@
 {
 	public interface ITranslationServer
 	{
+		ITranslatorClientAccess Translator { get; }
+
 		void Start();
 		void Stop();
 	}

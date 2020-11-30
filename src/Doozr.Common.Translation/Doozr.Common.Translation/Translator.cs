@@ -1,6 +1,7 @@
 ﻿using Doozr.Common.Ipc;
 using Doozr.Common.Logging;
 using Doozr.Common.Logging.Aspect;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace Doozr.Common.Translation
 			Logger?.Log("Connection established.");
 
 			commandHandler = commandHandlerFactory(client);
+			commandHandler.AddHandler<ITranslatorClientAccess>(this);
 			TranslationTarget = commandHandler.GetCommandProxy<ITranslationTarget>();
 		}
 
@@ -74,5 +76,12 @@ namespace Doozr.Common.Translation
 
 			return result.ToArray();
 		}
+
+		public void ReportMissingTranslation(string cultureName, string key)
+		{
+			OnMissingTranslation?.Invoke(this, new MissingTranslationEventArgs { CultureName = cultureName, Key = key });	
+		}
+
+		public event Action<object, MissingTranslationEventArgs> OnMissingTranslation;
 	}
 }

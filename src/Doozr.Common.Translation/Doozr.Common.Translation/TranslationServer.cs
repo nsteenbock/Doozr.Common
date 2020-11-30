@@ -13,7 +13,7 @@ namespace Doozr.Common.Translation
 		private readonly NamedPipeMessageServer.Factory namedPipeMessageServerFactory;
 		private INamedPipeMessageServer server;
 		private CommandHandler commandHandler;
-		private ITranslator translator;
+		private ITranslatorClientAccess translator;
 
 		public delegate ITranslationServer Factory(TranslationTarget translationTarget);
 
@@ -22,6 +22,14 @@ namespace Doozr.Common.Translation
 			this.translationTarget = translationTarget;
 			this.commandHandlerFactory = commandHandlerFactory;
 			this.namedPipeMessageServerFactory = namedPipesMessageServerFactory;
+
+			translationTarget.OnMissingTranslation += TranslationTarget_OnMissingTranslation;
+			
+		}
+
+		private void TranslationTarget_OnMissingTranslation(string key, string cultureName)
+		{
+			translator.ReportMissingTranslation(cultureName, key);
 		}
 
 		public ILogger Logger { get; set; }
@@ -36,13 +44,18 @@ namespace Doozr.Common.Translation
 			server.Start();
 			commandHandler = commandHandlerFactory(server);
 			commandHandler.AddHandler<ITranslationTarget>(translationTarget);
-			translator = commandHandler.GetCommandProxy<ITranslator>();
+			translator = commandHandler.GetCommandProxy<ITranslatorClientAccess>();
 		}
 
 		public void Stop()
 		{
 			server.Stop();
 			server = null;
+		}
+
+		public ITranslatorClientAccess Translator
+		{
+			get{ return this.translator; }
 		}
 	}
 }

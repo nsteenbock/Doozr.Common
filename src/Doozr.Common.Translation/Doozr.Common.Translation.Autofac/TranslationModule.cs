@@ -6,7 +6,7 @@ namespace Doozr.Common.Translation.Autofac
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
-			builder.RegisterType<TranslationServer>().As<ITranslationServer>();
+			builder.RegisterType<TranslationServer>().As<ITranslationServer>().SingleInstance();
 			builder.RegisterType<TranslationTarget>().As<ITranslationTarget>();
 			builder.RegisterType<Translator>().As<ITranslator>();
 		}

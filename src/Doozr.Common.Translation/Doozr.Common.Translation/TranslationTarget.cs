@@ -1,6 +1,7 @@
 ﻿using Doozr.Common.I18n;
 using Doozr.Common.Logging;
 using Doozr.Common.Logging.Aspect;
+using System;
 using System.Globalization;
 using System.Linq;
 
@@ -16,7 +17,16 @@ namespace Doozr.Common.Translation
 		{
 			this.translationProvider = translationProvider;
 			this.translationSource = translationSource;
+
+			translationSource.OnMissingTranslation += TranslationSource_OnMissingTranslation;
 		}
+
+		private void TranslationSource_OnMissingTranslation(string key, string cultureName)
+		{
+			OnMissingTranslation?.Invoke(key, cultureName);
+		}
+
+		public event Action<string, string> OnMissingTranslation;
 
 		public ILogger Logger { get; set; }
 
@@ -29,6 +39,13 @@ namespace Doozr.Common.Translation
 		{
 			Logger?.LogString(nameof(cultureName), cultureName);
 			translationSource.CurrentCulture = CultureInfo.GetCultureInfo(cultureName);
+		}
+
+		public string GetSelectedCulture()
+		{
+			var nameOfCurrentlySelectedCulture = translationSource.CurrentCulture.Name;
+			Logger?.LogString(nameof(nameOfCurrentlySelectedCulture), nameOfCurrentlySelectedCulture);
+			return nameOfCurrentlySelectedCulture;
 		}
 	}
 }
