@@ -6,7 +6,7 @@
     <title>Doozr Common Application Desktop Wpf CaliburnMicro</title>
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Doozr common application desktop wpf caliburn micro libarary</description>
+    <description>Doozr common application desktop wpf caliburn micro library</description>
 	<dependencies> 
       <group targetFramework="netcoreapp3.1">
         <dependency id="Autofac" version="6.0.0" />

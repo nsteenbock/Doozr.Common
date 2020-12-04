@@ -6,7 +6,7 @@
     <title>Doozr Common Logging Contracts</title>
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Doozr common logging contracts libarary</description>
+    <description>Doozr common logging contracts library</description>
   <dependencies>
       <group targetFramework=".NETStandard2.0" />
     </dependencies>

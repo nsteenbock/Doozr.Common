@@ -6,7 +6,7 @@
     <title>Doozr Common I18n Wpf</title>
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Doozr common I18n Wpf libarary</description>
+    <description>Doozr common I18n Wpf library</description>
   <dependencies>
       <group targetFramework="netcoreapp3.1">
         <dependency id="doozr.common.i18n.contracts" version="$version$" />

@@ -6,7 +6,7 @@
 		<title>Doozr Common Application</title>
 		<authors>Nils Steenbock</authors>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
-		<description>Doozr common application libarary</description>
+		<description>Doozr common application library</description>
 		<dependencies>
 			<group targetFramework=".NETStandard2.0">
 				<dependency id="doozr.common.logging.aspect" version="$version$"/>
