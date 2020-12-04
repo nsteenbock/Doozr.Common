@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Ipc\Doozr.Common.Ipc.Contracts\Doozr.Common.Ipc.Contracts.csproj" />
+    <ProjectReference Include="..\..\Doozr.Common.Ipc\Doozr.Common.Ipc\Doozr.Common.Ipc.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Translation.Contracts\Doozr.Common.Translation.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Translation.TranslatableApplication.Contracts\Doozr.Common.Translation.TranslatableApplication.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

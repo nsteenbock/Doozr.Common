@@ -1,6 +1,6 @@
 ﻿namespace Doozr.Common.Translation
 {
-	public static class Consts
+	public class Constants
 	{
 		public const string TRANSLATION_PIPE_PREFIX = "doozr.translation.";
 	}

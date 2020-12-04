@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Doozr.Common.Translation.TranslatorApplication</RootNamespace>
+    <AssemblyName>Doozr.Common.Translation.TranslatorApplication.Contracts</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Translation.TranslatableApplication.Contracts\Doozr.Common.Translation.TranslatableApplication.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

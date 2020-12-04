@@ -6,10 +6,11 @@
     <title>Doozr Common I18n</title>
     <authors>Nils Steenbock</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Doozr common I18n libarary</description>
+    <description>Doozr common I18n library</description>
   <dependencies>
       <group targetFramework=".NETStandard2.0">
 		<dependency id="doozr.common.i18n.contracts" version="$version$"/>
+		<dependency id="doozr.common.logging.contracts" version="$version$"/>
 	  </group>
     </dependencies>
   </metadata>

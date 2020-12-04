@@ -1,6 +1,6 @@
 ﻿namespace Doozr.Common.Translation
 {
-	public interface ITranslatorClientAccess
+	public interface ITranslatorApplication
 	{
 		void ReportMissingTranslation(string cultureName, string key);
 	}

@@ -9,7 +9,7 @@ namespace Doozr.Common.I18n
 		CultureInfo[] AvailableCultures { get; }
 		CultureInfo CurrentCulture { get; set; }
 
-		event Action<string, string> OnMissingTranslation;
+		event EventHandler<MissingTranslationArgs> MissingTranslation;
 
 		void SetTranslation(string translationKey, Translation translation);
 	}

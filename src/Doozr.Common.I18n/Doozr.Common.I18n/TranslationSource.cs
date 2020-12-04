@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Doozr.Common.Logging;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
@@ -6,13 +7,15 @@ using System.Globalization;
 
 namespace Doozr.Common.I18n
 {
-	public class TranslationSource: DynamicObject, ITranslationSource
+	public class TranslationSource: DynamicObject, ITranslationSource, ILoggingObject
 	{
 		private Dictionary<string, Translation> translations = new Dictionary<string, Translation>();
 		private readonly ITranslationProvider translationProvider;
 
-		public event Action<string, string> OnMissingTranslation;
+		
 		public event PropertyChangedEventHandler PropertyChanged;
+
+		public event EventHandler<MissingTranslationArgs> MissingTranslation;
 
 		public TranslationSource(ITranslationProvider translationProvider)
 		{
@@ -38,6 +41,8 @@ namespace Doozr.Common.I18n
 			}
 		}
 
+		public ILogger Logger { get; set; }
+
 		public override bool TryGetMember(GetMemberBinder binder, out object result)
 		{
 			var key = binder.Name;
@@ -48,7 +53,9 @@ namespace Doozr.Common.I18n
 			}
 			
 			result = $"_{key}_";
-			OnMissingTranslation?.Invoke(key, currentCulture.Name);
+
+			Logger.LogWarning($"Missing translation '{key}' for language '{currentCulture.Name}");
+			MissingTranslation?.Invoke(this, new MissingTranslationArgs(currentCulture.Name, key));
 			return true;
 		}
 

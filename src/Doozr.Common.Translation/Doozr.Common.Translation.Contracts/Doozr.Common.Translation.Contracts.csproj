@@ -5,4 +5,8 @@
     <RootNamespace>Doozr.Common.Translation</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.I18n\Doozr.Common.I18n.Contracts\Doozr.Common.I18n.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>

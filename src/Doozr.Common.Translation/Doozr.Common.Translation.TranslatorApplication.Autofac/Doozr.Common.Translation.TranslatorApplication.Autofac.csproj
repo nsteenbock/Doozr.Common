@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Translation.TranslatorApplication.Contracts\Doozr.Common.Translation.TranslatorApplication.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Translation.TranslatorApplication\Doozr.Common.Translation.TranslatorApplication.csproj" />
+  </ItemGroup>
+
+</Project>

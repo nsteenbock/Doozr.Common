@@ -5,20 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Fody" Version="6.3.0">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.138" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Doozr.Common.I18n\Doozr.Common.I18n.Contracts\Doozr.Common.I18n.Contracts.csproj" />
     <ProjectReference Include="..\..\Doozr.Common.Ipc\Doozr.Common.Ipc.Contracts\Doozr.Common.Ipc.Contracts.csproj" />
     <ProjectReference Include="..\..\Doozr.Common.Ipc\Doozr.Common.Ipc\Doozr.Common.Ipc.csproj" />
-    <ProjectReference Include="..\..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj" />
     <ProjectReference Include="..\..\Doozr.Common.Logging\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj" />
     <ProjectReference Include="..\Doozr.Common.Translation.Contracts\Doozr.Common.Translation.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Translation.TranslatorApplication.Contracts\Doozr.Common.Translation.TranslatorApplication.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

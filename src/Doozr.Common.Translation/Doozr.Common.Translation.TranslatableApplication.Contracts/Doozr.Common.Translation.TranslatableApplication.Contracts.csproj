@@ -2,15 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Doozr.Common.Translation.TranslatableApplication</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Doozr.Common.Translation.Contracts\Doozr.Common.Translation.Contracts.csproj" />
-    <ProjectReference Include="..\Doozr.Common.Translation\Doozr.Common.Translation.csproj" />
   </ItemGroup>
 
 </Project>
