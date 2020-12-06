@@ -73,5 +73,11 @@ namespace Doozr.Common.Translation.TranslatableApplication
 		{
 			return translationSource.CurrentCulture.Name;
 		}
+
+		public I18n.Translation[] GetTranslations(string cultureName)
+		{
+			return translationProvider.GetTranslations(CultureInfo.GetCultureInfo(cultureName))
+				.Values.ToArray();
+		}
 	}
 }
