@@ -1,5 +1,8 @@
-﻿namespace Doozr.Common.I18n
+﻿using System;
+
+namespace Doozr.Common.I18n
 {
+	[Serializable]
 	public class Translation
 	{
 		public string CultureName { get; set; }
