@@ -4,7 +4,6 @@ using Doozr.Common.Logging;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Doozr.Common.Translation.TranslatableApplication
 {
@@ -78,6 +77,11 @@ namespace Doozr.Common.Translation.TranslatableApplication
 		{
 			return translationProvider.GetTranslations(CultureInfo.GetCultureInfo(cultureName))
 				.Values.ToArray();
+		}
+
+		public void SetTranslation(I18n.Translation translation)
+		{
+			translationSource.SetTranslation(translation.Key, translation);
 		}
 	}
 }
