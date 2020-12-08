@@ -29,7 +29,7 @@ namespace Doozr.Common.Ipc
 		}
 
 		private readonly IMessageReceiver messageReceiver;
-
+		private readonly ILogManager logManager;
 		private readonly Dictionary<Guid, CommandContext> commandContexts = new Dictionary<Guid, CommandContext>();
 
 		private readonly Dictionary<Type, object> commandHandlers = new Dictionary<Type, object>();
@@ -38,9 +38,10 @@ namespace Doozr.Common.Ipc
 
 		public delegate CommandHandler Factory(IMessageReceiver messageReceiver);
 
-		public CommandHandler(IMessageReceiver messageReceiver)
+		public CommandHandler(IMessageReceiver messageReceiver, ILogManager logManager)
 		{
 			this.messageReceiver = messageReceiver;
+			this.logManager = logManager;
 			this.messageReceiver.OnMessageReceived += OnMessageReceived;
 		}
 
@@ -67,6 +68,7 @@ namespace Doozr.Common.Ipc
 			object proxy = DispatchProxy.Create<T, CommandProxy>();
 			((CommandProxy)proxy).MessageSender = (IMessageSender)this.messageReceiver; // please fix this
 			((CommandProxy)proxy).AddCommandContext = AddCommandContext;
+			((CommandProxy)proxy).Logger = logManager.GetLogger<T>();
 			return (T)proxy;
 		}
 
