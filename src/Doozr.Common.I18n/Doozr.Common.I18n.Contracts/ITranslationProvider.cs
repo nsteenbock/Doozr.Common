@@ -8,5 +8,7 @@ namespace Doozr.Common.I18n
 		CultureInfo[] GetAvailableCultures();
 
 		Dictionary<string, Translation> GetTranslations(CultureInfo cultureInfo);
+
+		void SaveTranslations(CultureInfo cultureInfo, Translation[] translations);
 	}
 }

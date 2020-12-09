@@ -59,5 +59,12 @@ namespace Doozr.Common.I18n
 			}
 			return translationDict;
 		}
+
+		public void SaveTranslations(CultureInfo cultureInfo, Translation[] translations)
+		{
+			var languageFile = languageFiles[cultureInfo];
+			var serializedTranslations = JsonConvert.SerializeObject(translations.OrderBy(x => x.Key), Formatting.Indented);
+			File.WriteAllText(languageFile, serializedTranslations);
+		}
 	}
 }

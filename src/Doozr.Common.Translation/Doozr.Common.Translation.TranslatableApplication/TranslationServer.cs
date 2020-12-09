@@ -83,5 +83,10 @@ namespace Doozr.Common.Translation.TranslatableApplication
 		{
 			translationSource.SetTranslation(translation.Key, translation);
 		}
+
+		public void SaveTranslations(string cultureName, I18n.Translation[] translations)
+		{
+			translationProvider.SaveTranslations(CultureInfo.GetCultureInfo(cultureName), translations);
+		}
 	}
 }
