@@ -10,7 +10,7 @@
 
 		I18n.Translation[] GetTranslations(string cultureName);
 
-		void SetTranslation(I18n.Translation translation);
+		void SetTranslation(string cultureName, I18n.Translation translation);
 
 		void SaveTranslations(string cultureName, I18n.Translation[] translations);
 	}

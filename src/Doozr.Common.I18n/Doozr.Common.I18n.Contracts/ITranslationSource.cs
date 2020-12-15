@@ -11,6 +11,6 @@ namespace Doozr.Common.I18n
 
 		event EventHandler<MissingTranslationArgs> MissingTranslation;
 
-		void SetTranslation(string translationKey, Translation translation);
+		void SetTranslation(CultureInfo culture, Translation translation);
 	}
 }

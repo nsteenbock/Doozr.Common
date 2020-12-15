@@ -59,16 +59,19 @@ namespace Doozr.Common.I18n
 			return true;
 		}
 
-		public void SetTranslation(string translationKey, Translation translation)
+		public void SetTranslation(CultureInfo culture, Translation translation)
 		{
-			if (translations.ContainsKey(translationKey))
+			if (currentCulture == culture)
 			{
-				translations.Remove(translationKey);
+				if (translations.ContainsKey(translation.Key))
+				{
+					translations.Remove(translation.Key);
+				}
+
+				translations.Add(translation.Key, translation);
+
+				PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(translation.Key));
 			}
-
-			translations.Add(translationKey, translation);
-
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(translationKey));
 		}
 	}
 }

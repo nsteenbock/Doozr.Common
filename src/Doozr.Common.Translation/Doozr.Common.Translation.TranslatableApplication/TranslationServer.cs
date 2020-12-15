@@ -79,9 +79,9 @@ namespace Doozr.Common.Translation.TranslatableApplication
 				.Values.ToArray();
 		}
 
-		public void SetTranslation(I18n.Translation translation)
+		public void SetTranslation(string cultureName, I18n.Translation translation)
 		{
-			translationSource.SetTranslation(translation.Key, translation);
+			translationSource.SetTranslation(CultureInfo.GetCultureInfo(cultureName), translation);
 		}
 
 		public void SaveTranslations(string cultureName, I18n.Translation[] translations)
