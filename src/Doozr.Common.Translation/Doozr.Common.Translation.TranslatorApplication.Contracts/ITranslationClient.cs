@@ -13,6 +13,8 @@ namespace Doozr.Common.Translation.TranslatorApplication
 
 		event EventHandler<MissingTranslationArgs> MissingTranslation;
 
+		event EventHandler<LanguageChangedArgs> LanguageChanged;
+
 		TranslationServerProcessInfo[] GetAvailableTranslationServers();
 	}
 }
