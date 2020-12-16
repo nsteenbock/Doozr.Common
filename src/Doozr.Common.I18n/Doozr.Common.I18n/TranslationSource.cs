@@ -7,15 +7,17 @@ using System.Globalization;
 
 namespace Doozr.Common.I18n
 {
-	public class TranslationSource: DynamicObject, ITranslationSource, ILoggingObject
+	public class TranslationSource : DynamicObject, ITranslationSource, ILoggingObject
 	{
 		private Dictionary<string, Translation> translations = new Dictionary<string, Translation>();
 		private readonly ITranslationProvider translationProvider;
 
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public event EventHandler<MissingTranslationArgs> MissingTranslation;
+
+		public event EventHandler<LanguageChangedArgs> LanguageChanged;
 
 		public TranslationSource(ITranslationProvider translationProvider)
 		{
@@ -29,7 +31,7 @@ namespace Doozr.Common.I18n
 
 		public CultureInfo CurrentCulture
 		{
-			get{ return currentCulture; }
+			get { return currentCulture; }
 			set
 			{
 				if (currentCulture != value)
@@ -37,6 +39,7 @@ namespace Doozr.Common.I18n
 					currentCulture = value;
 					translations = translationProvider.GetTranslations(currentCulture);
 					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
+					LanguageChanged?.Invoke(this, new LanguageChangedArgs(currentCulture.Name));
 				}
 			}
 		}
@@ -51,7 +54,7 @@ namespace Doozr.Common.I18n
 				result = translations[key].Value;
 				return true;
 			}
-			
+
 			result = $"_{key}_";
 
 			Logger.LogWarning($"Missing translation '{key}' for language '{currentCulture.Name}");

@@ -23,6 +23,8 @@ namespace Doozr.Common.Translation.TranslatorApplication
 
 		public event System.EventHandler<MissingTranslationArgs> MissingTranslation;
 
+		public event System.EventHandler<LanguageChangedArgs> LanguageChanged;
+
 		public TranslationClient(NamedPipeMessageClient.Factory messageClientFactory, CommandHandler.Factory commandHandlerFactory, INamedPipeManager namedPipeManager)
 		{
 			this.messageClientFactory = messageClientFactory;
@@ -80,6 +82,11 @@ namespace Doozr.Common.Translation.TranslatorApplication
 		public void ReportMissingTranslation(string cultureName, string key)
 		{
 			MissingTranslation?.Invoke(this, new MissingTranslationArgs(cultureName, key));
+		}
+
+		public void ReportLanguageChange(string cultureName)
+		{
+			LanguageChanged?.Invoke(this, new LanguageChangedArgs(cultureName));
 		}
 	}
 }

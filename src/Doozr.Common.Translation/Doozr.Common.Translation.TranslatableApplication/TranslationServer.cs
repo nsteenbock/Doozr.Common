@@ -27,11 +27,17 @@ namespace Doozr.Common.Translation.TranslatableApplication
 			this.translationProvider = translationProvider;
 			this.translationSource = translationSource;
 			this.translationSource.MissingTranslation += OnMissingTranslation;
+			this.translationSource.LanguageChanged += OnLanguageChanged;
 		}
 
 		private void OnMissingTranslation(object sender, MissingTranslationArgs e)
 		{
 			translatorApplication?.ReportMissingTranslation(e.CultureName, e.Key);
+		}
+
+		private void OnLanguageChanged(object sender, LanguageChangedArgs e)
+		{
+			translatorApplication?.ReportLanguageChange(e.CultureName);
 		}
 
 		public ITranslatorApplication TranslatorApplication
@@ -87,6 +93,14 @@ namespace Doozr.Common.Translation.TranslatableApplication
 		public void SaveTranslations(string cultureName, I18n.Translation[] translations)
 		{
 			translationProvider.SaveTranslations(CultureInfo.GetCultureInfo(cultureName), translations);
+		}
+
+		public void SetTranslations(string cultureName, I18n.Translation[] translations)
+		{
+			foreach(var translation in translations)
+			{
+				SetTranslation(cultureName, translation);
+			}
 		}
 	}
 }

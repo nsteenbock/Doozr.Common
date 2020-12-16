@@ -11,6 +11,8 @@ namespace Doozr.Common.I18n
 
 		event EventHandler<MissingTranslationArgs> MissingTranslation;
 
+		event EventHandler<LanguageChangedArgs> LanguageChanged;
+
 		void SetTranslation(CultureInfo culture, Translation translation);
 	}
 }

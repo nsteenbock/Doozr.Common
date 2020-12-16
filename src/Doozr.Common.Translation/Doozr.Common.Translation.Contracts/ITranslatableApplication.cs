@@ -12,6 +12,8 @@
 
 		void SetTranslation(string cultureName, I18n.Translation translation);
 
+		void SetTranslations(string cultureName, I18n.Translation[] translations);
+
 		void SaveTranslations(string cultureName, I18n.Translation[] translations);
 	}
 }
