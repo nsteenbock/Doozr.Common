@@ -1,0 +1,61 @@
+﻿<Window x:Class="GridViewSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d"
+        xmlns:gridView="clr-namespace:Doozr.Common.Application.Desktop.Wpf.GridView;assembly=Doozr.Common.Application.Desktop.Wpf" xmlns:System="http://schemas.microsoft.com/winfx/2009/xaml"
+		Title="MainWindow" Height="800" Width="1200">
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="200"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<ListView x:Name="a" Grid.Column="0" Grid.Row="0" gridView:ColumnLayout.Data="{Binding ColumnLayoutData}" 
+					gridView:ColumnLayout.DefaultAutosizeColumnId="birthdate" ItemsSource="{Binding Data}"
+					gridView:ColumnLayout.DefaultSortColumns="name(d),birthdate(d)">
+			<!--<gridView:ColumnLayout.SortColumns>
+				<gridView:SortColumnList>
+					<gridView:SortColumn/>
+					<gridView:SortColumn/>
+				</gridView:SortColumnList>
+			</gridView:ColumnLayout.SortColumns>-->
+			<ListView.ContextMenu>
+				<ContextMenu>
+					<MenuItem Header="Reset Column Layout"/>
+				</ContextMenu>
+			</ListView.ContextMenu>
+			<ListView.View>
+				<GridView>
+					<GridViewColumn gridView:Column.Id="name" gridView:Column.PropertyName="Name" Header="Name" DisplayMemberBinding="{Binding Name}" Width="200" />
+					<GridViewColumn gridView:Column.Id="givenname" gridView:Column.PropertyName="GivenName" Header="GivenName" DisplayMemberBinding="{Binding GivenName}" Width="200"/>
+					<GridViewColumn gridView:Column.Id="birthdate" gridView:Column.PropertyName="BirthDate" gridView:Column.HiddenByDefault="True" Header="BirthDate" DisplayMemberBinding="{Binding BirthDate}" />
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<ListView x:Name="b" Grid.Column="1" Grid.Row="0" ItemsSource="{Binding Data}">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn gridView:Column.Id="name" Header="Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
+					<GridViewColumn gridView:Column.Id="givenname" Header="GivenName" DisplayMemberBinding="{Binding GivenName}" Width="200"/>
+					<GridViewColumn gridView:Column.Id="birthdate" gridView:Column.HiddenByDefault="True" Header="BirthDate" DisplayMemberBinding="{Binding BirthDate}" />
+				</GridView>
+			</ListView.View>
+		</ListView>
+
+
+		<ListView Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=ColumnLayoutData.Columns}">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" Width="200"/>
+					<GridViewColumn DisplayMemberBinding="{Binding Width}" Header="Width" Width="100"/>
+
+				</GridView>
+			</ListView.View>
+		</ListView>
+	</Grid>
+</Window>

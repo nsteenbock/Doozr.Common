@@ -19,7 +19,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Contracts", "..\Doozr.Common.Logging\Doozr.Common.Logging.Contracts\Doozr.Common.Logging.Contracts.csproj", "{1B41F61D-3076-4EDB-876C-E5C18D02E289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Application.Desktop.Wpf.Autofac", "Doozr.Common.Application.Desktop.Wpf.Autofac\Doozr.Common.Application.Desktop.Wpf.Autofac.csproj", "{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Application.Desktop.Wpf.Autofac", "Doozr.Common.Application.Desktop.Wpf.Autofac\Doozr.Common.Application.Desktop.Wpf.Autofac.csproj", "{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{C6681393-8D23-47E1-BDC2-174FBAB57E4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GridViewSample", "Samples\GridViewSample\GridViewSample.csproj", "{C5206152-3673-40CA-A916-20B0857030CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CFDD5A8-3C65-4687-9D75-6B84FFF6E540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5206152-3673-40CA-A916-20B0857030CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5206152-3673-40CA-A916-20B0857030CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5206152-3673-40CA-A916-20B0857030CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5206152-3673-40CA-A916-20B0857030CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +77,7 @@ Global
 		{A2CF6156-BB47-4671-822A-028F7CFBD181} = {06CD72D0-0ABC-462D-84DA-97EB20F201DB}
 		{ED4F8146-DE14-4F68-AFF4-7FDAEA425917} = {06CD72D0-0ABC-462D-84DA-97EB20F201DB}
 		{1B41F61D-3076-4EDB-876C-E5C18D02E289} = {06CD72D0-0ABC-462D-84DA-97EB20F201DB}
+		{C5206152-3673-40CA-A916-20B0857030CB} = {C6681393-8D23-47E1-BDC2-174FBAB57E4C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B24EB3F2-A0D4-4F75-A59B-A9EA434B42AF}

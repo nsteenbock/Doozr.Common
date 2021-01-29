@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Doozr.Common.Application.Desktop\Doozr.Common.Application.Desktop.Contracts\Doozr.Common.Application.Desktop.Contracts.csproj" />
+    <ProjectReference Include="..\..\Doozr.Common.Application.Desktop.Wpf\Doozr.Common.Application.Desktop.Wpf.csproj" />
+  </ItemGroup>
+
+</Project>

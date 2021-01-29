@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependenc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Logging.Aspect", "..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj", "{26A617E1-F21F-44BE-B2FC-9EB04292AB58}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Application.Desktop.Wpf.Dialogs.Contracts", "Doozr.Common.Application.Desktop.Wpf.Dialogs.Contracts\Doozr.Common.Application.Desktop.Wpf.Dialogs.Contracts.csproj", "{8F723F09-9CBA-4C22-ABED-9CF17EDABF7F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Application.Desktop.Wpf.Dialogs", "Doozr.Common.Application.Desktop.Wpf.Dialogs\Doozr.Common.Application.Desktop.Wpf.Dialogs.csproj", "{5A537BCE-8E91-42A8-B9F5-20DE8149C149}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.I18n.Wpf", "..\Doozr.Common.I18n\Doozr.Common.I18n.Wpf\Doozr.Common.I18n.Wpf.csproj", "{A83AC407-74A3-430F-9225-9F091D455250}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +29,25 @@ Global
 		{26A617E1-F21F-44BE-B2FC-9EB04292AB58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26A617E1-F21F-44BE-B2FC-9EB04292AB58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26A617E1-F21F-44BE-B2FC-9EB04292AB58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F723F09-9CBA-4C22-ABED-9CF17EDABF7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F723F09-9CBA-4C22-ABED-9CF17EDABF7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F723F09-9CBA-4C22-ABED-9CF17EDABF7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F723F09-9CBA-4C22-ABED-9CF17EDABF7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A537BCE-8E91-42A8-B9F5-20DE8149C149}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A537BCE-8E91-42A8-B9F5-20DE8149C149}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A537BCE-8E91-42A8-B9F5-20DE8149C149}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A537BCE-8E91-42A8-B9F5-20DE8149C149}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A83AC407-74A3-430F-9225-9F091D455250}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A83AC407-74A3-430F-9225-9F091D455250}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A83AC407-74A3-430F-9225-9F091D455250}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A83AC407-74A3-430F-9225-9F091D455250}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{26A617E1-F21F-44BE-B2FC-9EB04292AB58} = {0C0CD05E-E130-465C-B042-9D91BC072A63}
+		{A83AC407-74A3-430F-9225-9F091D455250} = {0C0CD05E-E130-465C-B042-9D91BC072A63}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {74B98282-4C63-4ED1-BD01-897530EA5F67}

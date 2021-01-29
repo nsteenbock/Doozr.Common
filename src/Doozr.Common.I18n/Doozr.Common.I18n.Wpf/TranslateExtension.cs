@@ -14,7 +14,7 @@ namespace Doozr.Common.I18n.Wpf
 		{
 			this.translationKey = translationKey;
 		}
-
+				
 		public override object ProvideValue(IServiceProvider serviceProvider)
 		{
 			if (TranslationSource == null)
