@@ -10,9 +10,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MethodBoundaryAspect.Fody" Version="2.0.138" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Doozr.Common.Isolation\Doozr.Common.Isolation.Contracts\Doozr.Common.Isolation.Contracts.csproj" />
     <ProjectReference Include="..\..\Doozr.Common.Logging\Doozr.Common.Logging.Aspect\Doozr.Common.Logging.Aspect.csproj" />
     <ProjectReference Include="..\Doozr.Common.Application.Contracts\Doozr.Common.Application.Contracts.csproj" />
   </ItemGroup>

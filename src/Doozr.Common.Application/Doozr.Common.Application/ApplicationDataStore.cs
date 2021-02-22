@@ -55,5 +55,10 @@ namespace Doozr.Common.Application
 				return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), applicationProperties.ProcessName);
 			}
 		}
+
+		public bool FileExists(string path)
+		{
+			return File.Exists(GetCompletePath(path));
+		}
 	}
 }

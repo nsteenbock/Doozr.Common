@@ -9,6 +9,9 @@ namespace Doozr.Common.Application
 			builder.RegisterType<ApplicationProperties>().As<IApplicationProperties>().SingleInstance();
 			builder.RegisterType<ApplicationDataStore>().As<IApplicationDataStore>().SingleInstance();
 			builder.RegisterType<ProcessNamePortableApplicationDetector>().As<IPortableApplicationDetector>().SingleInstance();
+			builder.RegisterType<ApplicationSettings>().As<IApplicationSettings>()
+				.WithParameter("settingsPath", "settings")
+				.SingleInstance();
 		}
 	}
 }
