@@ -148,6 +148,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.GridView
 			AllColumns = allColumnList.ToArray();
 		}
 
+		[DoNotCheckEquality]
 		public double ActualGridWidth
 		{
 			get { return actualGridWidth; }
@@ -158,7 +159,7 @@ namespace Doozr.Common.Application.Desktop.Wpf.GridView
 			}
 		}
 
-		private void RecalculateColumnWidths()
+		public void RecalculateColumnWidths()
 		{
 			if (!string.IsNullOrEmpty(AutoSizeColumn))
 			{

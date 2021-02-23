@@ -28,7 +28,6 @@ namespace Doozr.Common.Application.Desktop.Wpf.GridView
 
 			gridView.Columns.CollectionChanged += Columns_CollectionChanged;
 
-			listView.SizeChanged += ListView_SizeChanged;
 			(this.viewModel as INotifyPropertyChanged).PropertyChanged += ViewModel_PropertyChanged;
 
 			listView.AddHandler(GridViewColumnHeader.ClickEvent, new RoutedEventHandler(ColumnHeader_Click));
@@ -56,7 +55,9 @@ namespace Doozr.Common.Application.Desktop.Wpf.GridView
 
 		private void ListView_SizeChanged(object sender, System.Windows.SizeChangedEventArgs e)
 		{
-			viewModel.ActualGridWidth = listView.ActualWidth;
+			var scrollViewer = listView.GetVisualChild<ScrollViewer>();
+			var viewPortWidth = scrollViewer.ViewportWidth;
+			viewModel.ActualGridWidth = viewPortWidth;
 		}
 
 		private void Columns_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -114,7 +115,14 @@ namespace Doozr.Common.Application.Desktop.Wpf.GridView
 			SynchronizeAutoSizeProperties();
 			ApplyBindings();
 			SynchronizeSortColumns();
-			viewModel.ActualGridWidth = listView.ActualWidth;
+			var scrollViewer = listView.GetVisualChild<ScrollViewer>();
+			scrollViewer.HorizontalScrollBarVisibility = viewModel.HasAutoSizeColumn ? ScrollBarVisibility.Hidden
+					: ScrollBarVisibility.Auto;
+			//scrollViewer.UpdateLayout();
+			var viewPortWidth = scrollViewer.ViewportWidth;
+			viewModel.ActualGridWidth = viewPortWidth;
+
+			listView.SizeChanged += ListView_SizeChanged;
 		}
 
 		private void SynchronizeSortColumns()
