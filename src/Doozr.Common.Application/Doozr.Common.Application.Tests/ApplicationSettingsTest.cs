@@ -36,7 +36,7 @@ namespace Doozr.Common.Application.Tests
 		public void Register_Different_Types_With_Same_SettingPath()
 		{
 			sut.Register<SettingWithNotifyPropertyChanged>("setting1");
-			sut.Register<SettingWithoutNotifyPropertyChanged>("setting1");
+			sut.Register<AnotherSettingWithNotifyPropertyChanged>("setting1");
 		}
 
 		[TestMethod]
@@ -84,21 +84,14 @@ namespace Doozr.Common.Application.Tests
 		}
 
 		[TestMethod]
+		[ExpectedException(typeof(InvalidOperationException))]
 		public void Save_Registered_Setting_Without_NotifyPropertyChange()
 		{
-			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 12 }");
 			sut.Register<SettingWithoutNotifyPropertyChanged>("setting1");
-			var resolvedValue = sut.Get<SettingWithoutNotifyPropertyChanged>();
-			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 12 }");
-			resolvedValue.Value = 14;
-
-			sut.Save();
-
-			Assert.AreEqual(14, objectSerializer.Deserialize<SettingWithoutNotifyPropertyChanged>(applicationDataStore.ReadFile(Path.Combine(SETTING_PATH, "setting1"))).Value);
 		}
 
 		[TestMethod]
-		public void Save_Registered_Setting_With_NotifyPropertyChange()
+		public void Save_RegisteredSettingWithNotifyPropertyChange_ChangingPersistedDataWithoutTouchingSettingObject()
 		{
 			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 12 }");
 			sut.Register<SettingWithNotifyPropertyChanged>("setting1");
@@ -108,6 +101,34 @@ namespace Doozr.Common.Application.Tests
 			sut.Save();
 
 			Assert.AreEqual(13, objectSerializer.Deserialize<SettingWithNotifyPropertyChanged>(applicationDataStore.ReadFile(Path.Combine(SETTING_PATH, "setting1"))).Value);
+		}
+
+		[TestMethod]
+		public void Save_RegisteredSettingWithNotifyPropertyChange_ChangingSettingObject()
+		{
+			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 12 }");
+			sut.Register<SettingWithNotifyPropertyChanged>("setting1");
+			var resolvedValue = sut.Get<SettingWithNotifyPropertyChanged>();
+			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 13 }");
+
+			resolvedValue.Value = 14;
+
+			Assert.AreEqual(14, objectSerializer.Deserialize<SettingWithNotifyPropertyChanged>(applicationDataStore.ReadFile(Path.Combine(SETTING_PATH, "setting1"))).Value);
+		}
+
+		[TestMethod]
+		public void Save_RegisteredSettingWithNotifyPropertyChange_ChangingSettingObject_CallingSaveAgainAfterAutomaticSaving()
+		{
+			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 12 }");
+			sut.Register<SettingWithNotifyPropertyChanged>("setting1");
+			var resolvedValue = sut.Get<SettingWithNotifyPropertyChanged>();
+			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 13 }");
+			resolvedValue.Value = 14;
+			applicationDataStore.WriteFile(Path.Combine(SETTING_PATH, "setting1"), @"{ ""Value"": 15 }");
+
+			sut.Save();
+
+			Assert.AreEqual(15, objectSerializer.Deserialize<SettingWithNotifyPropertyChanged>(applicationDataStore.ReadFile(Path.Combine(SETTING_PATH, "setting1"))).Value);
 		}
 
 		[TestMethod]

@@ -12,7 +12,7 @@ namespace Doozr.Common.Application
 		private readonly IApplicationDataStore applicationDataStore;
 		private readonly IObjectSerializer objectSerializer;
 
-		private readonly Dictionary<Type, Settings> settings = new Dictionary<Type, Settings>();
+		private readonly Dictionary<Type, SettingMetaData> settings = new Dictionary<Type, SettingMetaData>();
 
 		public ApplicationSettings(
 			string settingsPath,
@@ -52,21 +52,56 @@ namespace Doozr.Common.Application
 		public void Register<T>(string path)
 		{
 			var settingType = typeof(T);
+
+			if (!typeof(INotifyPropertyChanged).IsAssignableFrom(settingType)) throw new InvalidOperationException($"Setting of type {settingType} does not implement {nameof(INotifyPropertyChanged)}.");
+
 			if (settings.ContainsKey(settingType)) throw new InvalidOperationException($"Setting of type '{settingType}' already registered.");
 
 			var settingWithSamePath = settings.Where(x => x.Value.Path.Equals(path, StringComparison.InvariantCultureIgnoreCase));
 			if (settingWithSamePath.Any()) throw new InvalidOperationException($"Setting of type '{settingWithSamePath.First().Key}' already uses path '{settingWithSamePath.First().Value.Path}'.");
 
-			settings.Add(typeof(T), new Settings { Path = path });
+			settings.Add(typeof(T), new SettingMetaData(this) { Path = path });
 		}
 
-		class Settings
+		private void SettingChanged(SettingMetaData setting)
 		{
+			Save();
+		}
+
+		class SettingMetaData
+		{
+			public SettingMetaData(ApplicationSettings parent)
+			{
+				this.parent = parent;
+			}
+
+			private object settingObject;
+			private readonly ApplicationSettings parent;
+
 			public string Path { get; set; }
 
-			public object SettingObject{ get; set; }
+			public object SettingObject
+			{
+				get => settingObject;
+				set
+				{
+					settingObject = value;
+					if (settingObject != null)
+					{
+						(settingObject as INotifyPropertyChanged).PropertyChanged += Settings_PropertyChanged;
+					}
+				}
+			}
 
-			public bool IsDirty{ get; set; }
+			private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+			{
+				IsDirty = true;
+				parent.SettingChanged(this);
+			}
+
+			public bool IsDirty { get; set; }
+
+
 		}
 
 		public void Save()
@@ -74,8 +109,9 @@ namespace Doozr.Common.Application
 			foreach(var setting in settings)
 			{
 				if (setting.Value.SettingObject != null && 
-					(setting.Value.IsDirty || !(typeof(INotifyPropertyChanged).IsAssignableFrom(setting.Key))))
+					(setting.Value.IsDirty))
 				{
+					setting.Value.IsDirty = false;
 					applicationDataStore.WriteFile(Path.Combine(settingsPath, setting.Value.Path), objectSerializer.Serialize(setting.Value.SettingObject));
 				}
 			}
