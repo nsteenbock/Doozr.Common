@@ -9,6 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Data.Contracts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Data.EntityFramework", "Doozr.Common.Data.EntityFramework\Doozr.Common.Data.EntityFramework.csproj", "{C0F5C931-396B-46AA-B458-FAF9549791D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Data.EntityFramework.Contracts", "Doozr.Common.Data.EntityFramework.Contracts\Doozr.Common.Data.EntityFramework.Contracts.csproj", "{63EF1917-0E76-4C37-BB1D-213DF21693EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Data.EntityFramework.Autofac", "Doozr.Common.Data.EntityFramework.Autofac\Doozr.Common.Data.EntityFramework.Autofac.csproj", "{D2CF8457-C6C9-4FD1-9042-3029560CE361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{C0F5C931-396B-46AA-B458-FAF9549791D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0F5C931-396B-46AA-B458-FAF9549791D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0F5C931-396B-46AA-B458-FAF9549791D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63EF1917-0E76-4C37-BB1D-213DF21693EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63EF1917-0E76-4C37-BB1D-213DF21693EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63EF1917-0E76-4C37-BB1D-213DF21693EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63EF1917-0E76-4C37-BB1D-213DF21693EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2CF8457-C6C9-4FD1-9042-3029560CE361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CF8457-C6C9-4FD1-9042-3029560CE361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CF8457-C6C9-4FD1-9042-3029560CE361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CF8457-C6C9-4FD1-9042-3029560CE361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

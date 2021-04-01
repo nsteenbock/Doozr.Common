@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Doozr.Common.Data.Contracts\Doozr.Common.Data.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Data.EntityFramework.Contracts\Doozr.Common.Data.EntityFramework.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

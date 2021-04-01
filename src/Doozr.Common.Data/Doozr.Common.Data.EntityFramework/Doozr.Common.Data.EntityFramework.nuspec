@@ -10,6 +10,7 @@
   <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="doozr.common.data.contracts" version="$version$" />
+		<dependency id="doozr.common.data.entityframework.contracts" version="$version$" />
       </group>
     </dependencies>
   </metadata>

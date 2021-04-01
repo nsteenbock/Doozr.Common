@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Doozr.Common.Data.EntityFramework.Contracts\Doozr.Common.Data.EntityFramework.Contracts.csproj" />
+    <ProjectReference Include="..\Doozr.Common.Data.EntityFramework\Doozr.Common.Data.EntityFramework.csproj" />
+  </ItemGroup>
+
+</Project>
