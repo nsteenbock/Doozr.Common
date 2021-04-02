@@ -14,7 +14,7 @@ namespace Doozr.Common.Data.EntityFramework
                     auditableEntry.State == EntityState.Modified)
                 {
                     auditableEntry.Entity.Modified = DateTime.Now;
-                    auditableEntry.Entity.Creator = GetCurrentUsername();
+                    auditableEntry.Entity.Modifier = GetCurrentUsername();
 
                     if (auditableEntry.State == EntityState.Added)
                     {
