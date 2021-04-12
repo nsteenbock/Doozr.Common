@@ -7,7 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Utilities", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities.Tests", "Doozr.Common.Utilities.Tests\Doozr.Common.Utilities.Tests.csproj", "{9D559B50-F24C-4D8D-AF32-4110CB83B3BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities.Contracts", "Doozr.Common.Utilities.Contracts\Doozr.Common.Utilities.Contracts.csproj", "{23372EFF-83BE-41C7-88E7-E70FC4E91E30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Utilities.Contracts", "Doozr.Common.Utilities.Contracts\Doozr.Common.Utilities.Contracts.csproj", "{23372EFF-83BE-41C7-88E7-E70FC4E91E30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependencies", "{6E62ADC5-D2FC-48F9-A34A-06A58F14C095}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Isolation.Contracts", "..\Doozr.Common.Isolation\Doozr.Common.Isolation.Contracts\Doozr.Common.Isolation.Contracts.csproj", "{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Doozr.Common.Isolation", "..\Doozr.Common.Isolation\Doozr.Common.Isolation\Doozr.Common.Isolation.csproj", "{8538D5FD-875E-43BB-B654-400FE46C6A16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doozr.Common.Utilities.Autofac", "Doozr.Common.Utilities.Autofac\Doozr.Common.Utilities.Autofac.csproj", "{5789D204-69E4-40CA-998F-8C8BF624EF16}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +35,25 @@ Global
 		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23372EFF-83BE-41C7-88E7-E70FC4E91E30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8538D5FD-875E-43BB-B654-400FE46C6A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8538D5FD-875E-43BB-B654-400FE46C6A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8538D5FD-875E-43BB-B654-400FE46C6A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8538D5FD-875E-43BB-B654-400FE46C6A16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5789D204-69E4-40CA-998F-8C8BF624EF16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5789D204-69E4-40CA-998F-8C8BF624EF16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5789D204-69E4-40CA-998F-8C8BF624EF16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5789D204-69E4-40CA-998F-8C8BF624EF16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F6B8AEC-4F29-4E1B-8D16-D3A52F1FB34B} = {6E62ADC5-D2FC-48F9-A34A-06A58F14C095}
+		{8538D5FD-875E-43BB-B654-400FE46C6A16} = {6E62ADC5-D2FC-48F9-A34A-06A58F14C095}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4B5C0548-4954-4E53-B0CE-537E301F9F95}
