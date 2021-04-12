@@ -10,7 +10,7 @@ namespace Doozr.Common.Isolation.Autofac
 		{
 			builder.RegisterType<DateTimeProvider>().As<IDateTimeProvider>().SingleInstance();
 
-			builder.RegisterType<Filesystem>().As<IFilesystem>();
+			builder.RegisterType<FileSystem>().As<IFileSystem>();
 		}
 	}
 }

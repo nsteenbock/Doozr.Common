@@ -8,7 +8,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFilesRecursive_AllTextFilesInDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFilesRecursive(@"Io\DummyFolderStructure", "*.txt");
 
@@ -20,7 +20,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFilesRecursive_AllTextFilesInSubfolderOfDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFilesRecursive(@"Io\DummyFolderStructure\Subfolder", "*.txt");
 
@@ -31,7 +31,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFilesRecursive_AllJpegFilesInDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFilesRecursive(@"Io\DummyFolderStructure", "*.jpeg");
 
@@ -41,7 +41,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFiles_AllTextFilesInSubfolderOfDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFiles(@"Io\DummyFolderStructure\Subfolder", "*.txt");
 			
@@ -52,7 +52,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFiles_AllTextFilesInDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFiles(@"Io\DummyFolderStructure", "*.txt");
 
@@ -63,7 +63,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void GetFiles_AllJpegFilesInDummyFolderStructure()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var files = sut.GetFiles(@"Io\DummyFolderStructure", "*.jpeg");
 
@@ -73,7 +73,7 @@ namespace Doozr.Common.Isolation.Tests.Io
 		[Fact]
 		public void ReadAllText_WithExistingTextFile()
 		{
-			var sut = new Filesystem();
+			var sut = new FileSystem();
 
 			var content = sut.ReadAllText(@"Io\DummyFolderStructure\TextFile1.txt");
 
