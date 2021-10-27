@@ -14,7 +14,7 @@
 		<DockPanel Grid.Row="1" LastChildFill="False" Margin="0,10,0,0">
 			<StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
 				<Button Padding="5,3,5,3" Margin="5,0,0,0" Content="OK" x:Name="Ok" IsDefault="True" Style="{StaticResource DialogButton}" />
-				<Button Padding="5,3,5,3" Margin="5,0,0,0" Content="Cancel" IsCancel="True" Style="{StaticResource DialogButton}"/>
+				<Button Padding="5,3,5,3" Margin="5,0,0,0" Content="Cancel" x:Name="Cancel" IsCancel="True" Style="{StaticResource DialogButton}"/>
 			</StackPanel>
 		</DockPanel>
 	</Grid>
